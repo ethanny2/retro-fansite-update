@@ -1,0 +1,2262 @@
+html {
+    overflow: scroll;
+    overflow-x: hidden;
+}
+::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+}
+/* optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+    background: #FF0000;
+}
+
+head{
+	display: initial;
+}
+
+.page_list{
+	margin:auto 0;
+	text-align: center;
+}
+.pagination > li > a,
+.pagination > li > a,
+.pagination > li > span,
+.pagination > li > span {
+    z-index: 3;
+    color: #23527c;
+    background-color: black;
+    border-color: black;
+}
+
+.pagination{
+	width: auto;
+}
+
+
+.pagination > li > a:focus,
+.pagination > li > a:hover,
+.pagination > li > span:focus,
+.pagination > li > span:hover {
+    z-index: 3;
+    color: #23527c;
+    background-color: black;
+    border-color: red;
+}
+
+
+body{
+	margin:0;
+	padding: 0;
+	font-family: 'Creepster', cursive;
+	padding-top: 65px;
+   background: url('../images/hell_background.gif')no-repeat center  fixed; 
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   -o-background-size: cover;
+   background-size: cover;
+}
+
+
+body,html{
+	width: 100%;
+	height: 100%;
+	
+	}
+* { box-sizing: border-box; }
+
+#top_nav{
+		color: blue;
+
+}
+
+
+
+.navbar-nav {
+	font-family: 'Creepster', cursive;
+	font-size: 1.5em;
+	letter-spacing: .2em;
+	float: left;
+}
+
+/* Where it the items in bar are listed*/
+
+#nav_items{
+		padding-right: 0;
+		padding-left: 0;
+		margin-right: 2%;
+}
+
+
+
+/* NEEDED TO CHANGE COLOR OF NAVIGATION ITEMS*/
+.nav.navbar-nav.navbar-right li a {
+	}
+
+
+
+
+
+
+ 
+#brand_img{
+	width:40px;
+	height:40px;
+	margin-top: 10%;
+}
+
+.navbar-brand{
+	padding-bottom: 0;
+	padding-top: 0;
+	padding-left: 0;
+}
+
+.navbar-brand p{
+	letter-spacing: .1em;
+	font-size: .85em;
+	display: inline-block;
+	margin-top: 7%;
+}
+
+
+.navbar-brand a{
+	padding-top:0;
+	padding-left: 0;	
+	padding-bottom: 0;
+	}
+
+
+/******* MUSIC PAGE SECTION *******/
+
+ #music_header{
+	text-align: center;	
+	font-style: italic;
+	color: white;
+	font-size: 2em;
+}
+#music_contents{
+	border: 6px solid red;
+	height: auto;
+	width: auto;	
+}
+
+#grid{
+	padding: 0;
+	margin: 0;
+
+}
+
+/* Default for 	320px or less*/
+.grid-sizer,
+.grid-item {
+  width: 33.3%;
+}
+
+.grid-item{
+  float: left;
+  height: 107px;
+}
+
+.grid-item-content{
+	width: 100%;
+	height: 100%;
+	-webkit-transition: width 0.4s, height 0.4s;
+    transition: width 0.4s, height 0.4s;
+}
+
+
+
+/* Song name*/
+.grid-item-content .song_name{
+	padding: 0;
+	height: auto;
+	max-height: 30%;
+	line-height: .95em;
+	float: left;
+	overflow: hidden;
+	margin: 0 auto;
+	/*Change z-index so they dont overlap */
+	z-index: 0;
+	text-align: left;	
+	font-size: .73em;
+	position: absolute;
+	color: black;
+	/* Fallback*/
+	background:rgb(255,255,255);
+	background:rgba(255, 255, 255,0.85);
+	text-transform: capitalize;
+	font-family: 'Metal Mania', cursive;
+	display: block;
+}
+
+
+
+
+.grid-item-content .close-button{
+	color:red;	
+	font-size: 3em;
+	background-color: transparent;
+	display: none;
+}
+
+
+
+.grid-item-content img{
+	width: 100%;
+	height: 100%;
+}
+
+.grid-item:hover .grid-item-content{
+	cursor: pointer;
+	border-color: white;
+/*	background:white;
+*/	border: 2px solid #333;
+  border-color: hsla(0, 0%, 0%, 0.5);
+  border-radius: 5px;
+}
+
+.grid-item.expand{
+	width: 100%;
+	height: 150px;
+	z-index: 2;
+	/* Also change the background to a solid color, make img smaller put title on top
+	add soundcloud player embedded*/
+	background-color:white;
+}
+
+
+
+.grid-item.expand .grid-item-content img{
+	display: none;
+}
+.grid-item.expand .grid-item-content{
+	margin: 0 auto;
+	font-size: 1.5em;
+	text-align: center;
+}
+
+.grid-item.expand .grid-item-content .song_name{
+	display: none;
+}
+
+.grid-item.expand .grid-item-content .close-button{
+	left:94%;
+	display: none;
+	
+	font-size: 1.4em;
+	text-decoration: underline;
+	margin-bottom: 2%;
+	cursor: pointer;
+}
+ 
+/* Experimental*/
+iframe{
+	width: 100%;
+	height: 100%;
+}
+
+
+.grow { -webkit-transition: all .4s ease-in-out;
+	-moz-transition: all .4s ease-in-out;
+	-o-transition: all .4s ease-in-out;
+	-ms-transition: all .4s ease-in-out;
+
+}
+.grow:hover{   
+	 -webkit-transform: scale(1.6); 
+    -moz-transform: scale(1.4);
+    -o-transform: scale(1.4);
+    transform: scale(1.4); 
+    z-index: 100;
+}
+/*******/
+
+
+/****  ABOUT PAGE STYLING*******/
+
+#about_title{
+	text-align: center;	
+	font-size: 3em;
+	font-style: italic;
+	height: 20%;
+	color: white;
+/*	border:solid 1px black;
+*/
+}
+
+#about_image{
+/*	border:solid 3px blue;
+*/	text-align: center;
+	margin: 0 auto;
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin-bottom: 45%;
+	position: relative;
+}
+
+#about_image img{
+	position: relative;
+	width:90%;
+	height: 100%;
+}
+#blood{
+	/*position: relative;
+	display: inline-block;
+	width: 100%;
+	margin:auto 0;
+	height: 100%;	
+	z-index: 100;
+	border: solid white 4px;*/
+}
+#blood img{
+	top: 54%;
+	left: 23%;
+	position: absolute;
+/*	border: solid white 4px;
+*/	display: block;
+	bottom: 40%;
+	text-align: center;
+	width: 30%;
+	height: 70%;
+}
+
+
+#about_text{
+		background-color: black;
+		width: 100%;
+		text-align: left;
+		font-family: 'Metal Mania', cursive;
+		font-size: 1.1em;
+		letter-spacing: .9px;
+		color: white;
+		border-radius: 10px;
+}
+
+#first_par{
+	padding-top: 2%;
+	padding-left: 0;
+	padding-bottom: 0;
+	padding-right: 1%;
+}
+#second_par,#third_par,#fourth_par{
+	padding-right: 1%;
+}
+
+#first_par:after{
+	margin-top:2%;
+	content: ' ';
+	margin-left: 5%;
+	margin-right: 5%;
+	display: block;
+	border:1px solid white;
+}
+
+
+#second_par:after{
+	margin-top:2%;
+	content: ' ';
+	margin-left: 5%;
+	margin-right: 5%;
+	display: block;
+	border:1px solid white;
+}
+
+#third_par:after{
+	margin-top:2%;
+	content: ' ';
+	margin-left: 5%;
+	margin-right: 5%;
+	display: block;
+	border:1px solid white;
+}
+
+#fourth_par{
+	padding-bottom: 2%;
+}
+
+
+
+#quote{
+	/*visibility: hidden; */
+	text-align: center;
+	margin:0 auto;
+	padding:0 0 0 0; 
+	color:white;
+	float: left;
+	width: 100%; 	
+	font-style: italic;
+	font-size: 1.7em;
+	margin-top: 0%;
+}
+.bottom_container{
+/*	border: white solid 3px;
+*/	clear:both;
+}
+
+#left_skull{
+	display: block;
+	text-align: center;
+	width: 25%;
+	margin: 0 auto;
+}
+#right_skull{
+	display: inline-block;
+	text-align: center;
+	float: left;
+	width: 25%;
+	margin-top: 100%;
+}
+#left_skull img{
+	width: 100%;
+	display: block;
+	height: 100%;
+}
+
+#right_skull img{
+	width: 100%;
+	display: block;
+	height: 100%;
+}
+
+
+
+
+/**** ****/
+
+
+
+/**** Video Section ****/
+#main_vid{
+	border:3px black solid;
+	border-radius: 25px;
+	float: left;
+	min-width: 100%;
+	width: 100%;
+	height: auto;
+
+}
+
+#vid_container{
+	width: 100%;
+	overflow: hidden;
+	margin:0;
+	text-align: center;
+	padding: 0;				
+}
+
+#video_title{
+	text-align: center;
+	font-size: 2.5em;
+	font-style: italic;
+	color:white;
+	padding: 0;
+	margin: 0;
+}
+
+
+
+.wrap{
+	box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+  	border-radius: 4px;
+}
+.panel-title a:focus,
+.panel-title a:hover,
+.panel-title a:active{
+      outline: 0;
+      text-decoration: none;
+ }
+
+.panel-title a:hover{
+	cursor: pointer;
+}
+
+ .panel {
+            background: none;
+            box-shadow: none;
+            width: 100%;
+            padding: 0;
+ }
+
+ #panel-col{
+ 	margin: 0;
+ 	width: 100%;
+ 	padding: 0;
+ }
+
+.panel-group .panel{
+            border-radius: 0;
+ }
+
+.panel-heading {
+			width: 100%;
+			height: 100%;
+            background-color: white;    
+    		 -webkit-animation: pulse 15s infinite;
+    		 -moz-animation:pulse 15s infinite;
+    		 animation: pulse 15s infinite;
+ }
+.panel-title a {
+			text-align: left;
+            display: block;
+            color: black;
+            padding: 15px 15px 15px 0;
+            position: relative;
+            font-size: 1.4em;
+            font-weight: 400;
+ }
+ .panel-body{
+            background-color: #fff;
+            font-size: 1.4em;
+            width: 100%;
+            padding: 0;
+            height: 100%;
+ }
+
+ .panel-heading img{
+ 	width: 35px;
+ 	height: 35px;
+ 	top: 17%;
+ 	left: 90%;
+ 	position: absolute;
+ }
+
+.panel-group{
+	padding: 0;
+	margin: 0;
+}
+.spin-class{
+		-webkit-animation: spin 1s  linear;
+}
+
+@-moz-keyframes spin{
+	0%{-moz-transform:rotate(0deg);}
+	100%{-moz-transform:rotate(-360deg);}
+}
+
+@-webkit-keyframes spin {
+    0%  {-webkit-transform: rotate(0deg);}
+    100% {-webkit-transform: rotate(-360deg);}   
+}
+
+@-moz-keyframes pulse{
+ 	 0% {background-color: #45CEEF;}
+     25% {background-color: #FFF5A5;}
+     50% {background-color: #FFD4DA;}
+     75% {background-color: #99D2E4;}
+     100% {background-color: #D8CAB4;}
+}
+@-webkit-keyframes pulse{
+	 0% {background-color: #45CEEF;}
+     25% {background-color: #FFF5A5;}
+     50% {background-color: #FFD4DA;}
+     75% {background-color: #99D2E4;}
+     100% {background-color: #D8CAB4;}
+}
+@keyframes pulse{
+	 0% {background-color: #45CEEF;}
+     25% {background-color: #FFF5A5;}
+     50% {background-color: #FFD4DA;}
+     75% {background-color: #99D2E4;}
+     100% {background-color: #D8CAB4;}
+}
+
+.contents-title{
+	text-align: center;
+	text-decoration: underline;
+	font-size: 1.5em;
+}
+
+.contents-video{
+	display: block;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	height: 200px;
+}
+
+
+
+
+
+/***** ****/
+
+/* Nav bar changing colors... red -> white?  or yellow -> white*/
+@-moz-keyframes colors { 
+	0%{
+		color:#9d9d9d;
+	}
+	25%{
+		color:#FCA2A2;
+	}
+
+	50%{
+		color:#FC6F6F ;
+	}
+
+	75%{
+		color:#FF3535;
+	}
+
+	100%{
+		color:#FF0000;
+	}
+
+}
+@-webkit-keyframes colors {
+	0%{
+		color:#9d9d9d;
+	}
+	25%{
+		color:#FCA2A2;
+	}
+
+	50%{
+		color:#FC6F6F ;
+	}
+
+	75%{
+		color:#FF3535;
+	}
+
+	100%{
+		color:#FF0000;
+	}
+
+}
+@keyframes colors { 
+	0%{
+		color:#9d9d9d;
+	}
+	25%{
+		color:#FCA2A2;
+	}
+
+	50%{
+		color:#FC6F6F ;
+	}
+
+	75%{
+		color:#FF3535;
+	}
+
+	100%{
+		color:#FF0000;
+	}
+}
+
+
+
+
+
+
+
+
+/**Main.html styling *****/
+
+#runner_container{
+	text-align: center;
+	z-index: 100;
+	display: inline-block;
+	border: solid white 2px;
+	margin-top: 30%;
+	margin-left: 15%;
+	display: none;
+}
+#runner_container img{
+	display: block;
+	height: 130px;
+	padding: 0;
+}
+
+#demon_container{
+	
+	text-align: center;
+	z-index: 100;
+	display: inline-block;
+	border: solid white 2px;
+	position: absolute;
+	margin-top: 27.2%;
+	display: none;
+}
+
+#demon_container img{
+	display: block;
+	height: 130px;
+	padding: 0;
+}
+
+#instructions{
+	text-align: center;
+	color:white;
+	font-style: italic;
+	font-family: 'Creepster', cursive;
+	font-size: 7.5em;
+	padding: 0;
+	display: none;
+}
+
+#carti_title{
+	color:white;
+	font-style: italic;
+	font-size: 4em;
+	padding: 0;
+/*	border: solid white 3px;
+*/	font-family: 'Metal Mania', cursive;
+	text-align: center;
+}
+#decoration_left{
+/*	border: solid white 3px;
+*/	text-align: center;
+	width: 60%;
+	margin:0 auto;
+}
+#decoration_left img{
+	height: 125px;
+	width: 100%;
+}
+#decoration_right{
+/*	border: solid white 3px;
+*/	text-align: center;
+	width: 60%;
+	margin:0 auto;margin-bottom: 5%;
+}
+#decoration_right img{
+	width: 100%;
+	height: 125px;
+}
+
+#main_gallery{
+	padding: 0;
+	margin:0;
+/*	border: solid black 3px;
+*/	margin-top:5%;
+	margin-bottom:5%;
+	width: 100%;
+	text-align: center;
+}
+#main_gallery video{
+	width: 100%;
+	height: 100%;
+}
+.carti_img{
+	filter: none;
+	z-index:1000;
+	width: 90%;
+	height: 100%;
+/*	border:solid black 2px;
+*/	border-radius: 5px;
+}
+
+.carti_vid{
+	filter: none;
+	z-index:1000;
+	width: 90%;
+	height: 100%;
+/*	border:solid black 2px;
+*/	border-radius: 5px;
+
+}
+.gallery_back{
+	width:100%;
+	padding: 0;
+	margin:0;
+	background-color: rgba(255,255,255,1);
+	text-align: center;
+	border:solid black 2px;
+}
+.gallery_parent{
+	width: 100%;
+	padding: 0;
+	margin: 0 auto;
+	text-align: center;
+	margin-top: 2%;
+	margin-bottom: 2%; 
+
+}
+
+#note{
+	text-align: center;
+	color: black;
+	font-size: 1.8em;
+	margin-top: 5%;
+	width: 100%;
+}
+#note a:focus,
+#note a:hover,
+#note a:active,
+#note a:link,
+#note a:visited{
+	  outline: 0;
+      text-decoration: none;
+      color: red;
+}
+
+
+.post_container{
+	background-color: black;
+	text-align: center;
+	border: solid 3px white;
+	height: 100%;
+	overflow: hidden;
+}
+.post_title{
+	color: white;
+	text-align: center;
+	padding:5px;
+	font-size: 3.3em;
+}
+
+.image_container{
+	text-align: center;
+	margin-bottom: 5%;
+	float: left;
+	margin-left: 3%;
+	height: 100%;
+	width: 95%;
+	margin-right: 3%;
+}
+.image_container img{
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	
+}
+
+
+figure{
+/*	border: 4px solid red;
+*/	display: block;
+}
+
+/*IMAGES SHINE */
+figure {
+	position: relative;
+}
+
+
+
+.hovereffect {
+  width: 95%;
+/*  border: 1px solid red;
+*/  height: 100%;
+  float: left;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  cursor: default;
+  background: none;
+}
+
+.hovereffect .overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  padding: 50px 20px;
+}
+
+.hovereffect img {
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  -webkit-transform: translate3d(-10px,0,0);
+  transform: translate3d(-10px,0,0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.hovereffect:hover img {
+  opacity: 0.4;
+  filter: alpha(opacity=40);
+  -webkit-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
+}
+
+.hovereffect h2 {
+  text-transform: uppercase;
+  color: #fff;
+  text-align: center;
+  position: relative;
+  font-size: 17px;
+  overflow: hidden;
+  padding: 0.5em 0;
+  background-color: transparent;
+}
+
+.hovereffect h2:after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  content: '';
+  -webkit-transition: -webkit-transform 0.35s;
+  transition: transform 0.35s;
+  -webkit-transform: translate3d(-100%,0,0);
+  transform: translate3d(-100%,0,0);
+}
+
+.hovereffect:hover h2:after {
+  -webkit-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
+}
+
+.hovereffect a, .hovereffect p {
+  color: #FFF;
+  opacity: 0;
+  font-size: 6vh;
+  filter: alpha(opacity=0);
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  -webkit-transform: translate3d(100%,0,0);
+  transform: translate3d(100%,0,0);
+}
+
+.hovereffect:hover a, .hovereffect:hover p {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  -webkit-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
+}
+
+
+
+
+/*********/
+
+
+
+
+.video_container{
+	text-align: center;
+	margin-bottom: 5%;
+	float: left;
+	margin-left: 3%;
+	height: 100%;
+	border:  solid 4px #464646   ;
+
+	width: 95%;
+	margin-right: 3%;
+}
+.video_container video{
+	width: 100%;
+	height: 100%;
+/*	border:  solid 4px red;	
+*/}
+
+figcaption{
+	text-align: left;
+	color: white;
+	font-size: 3vh;
+	font-style: italic;
+}
+.post_writing{
+	text-align: left;
+	color: white;
+	font-size: 2.9vh;
+	left: 5%;
+	font-family: 'Fjalla One', sans-serif;;
+	font-style: normal;
+	padding: 5px;
+}
+#second_image img{
+/*	float: right;
+*/}
+.image_container figure{
+}
+
+/*********/
+
+/** Store Styling **/
+ #full_image{ 	
+   height: 100%;
+   z-index: -1;
+   width: 100%;
+}
+#full_image img{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+
+#store_title{
+	color:white;
+	font-family: 'Creepster', cursive;
+	font-style: italic;
+	font-size: 3em;
+	text-align: center;
+}
+
+#message_container{
+	font-size: 1.4em;
+	margin: 0 auto;
+	text-align: center;
+	background-color: black ;
+	margin-top: 25%;
+	padding: 10px;
+	padding-bottom: 0;
+		border-radius: 25px;
+	margin-bottom: 25%;
+		color: white;
+
+}
+label{
+	color: white;
+}
+
+
+#message_container p{
+	margin-bottom: 5%;
+}
+
+
+
+.design_container{
+	margin-top: 9%;
+	height: 100%;
+	width: 100%;
+/*	border: solid black 3px;
+*/	text-align: center;
+	position: relative;
+  	overflow: hidden;
+  	display: inline-block;
+/*  	background-color: #DAD2D2  ;
+*/
+}
+
+
+.design_container img{
+	height: 100%;
+	width: 100%;
+}
+
+
+
+.design_container .coming_soon{
+	width: 55%;
+	height: 40%;
+}
+
+
+
+.button{
+	border-radius: 25px;
+	padding: 5px 10px 5px 10px;
+	margin-top: 3%;
+	margin-bottom: 3%;
+	color:black;
+}
+#response{
+	display: inline;
+
+	margin-top: 10%;
+	color: white;
+	font-size: 1.4em;
+}
+
+#email_entry{
+	color: white;
+}
+#email_entry:after{
+	margin-top:2%;
+	content: ' ';
+	display: block;
+	border:1px solid white;
+}
+
+label{
+  font-size: 25px;
+  margin: 10px;
+  padding: 0 10px;
+}
+.active {
+  top: -25px;
+  font-size: 20px;
+}
+
+
+input[type=text] {
+  width: 96%;
+  padding: 10px;
+  font-size: 1.2em;
+  background-color: black;
+  color: white;
+} 
+
+input[type=text]:focus {
+  outline: none;
+}
+
+#message_container ul{
+	list-style: none;
+	 height: 100%;
+ 	 width: 100%;
+ 	 margin: 0;
+ 	 padding: 0;
+}
+
+#email_header{
+	color: white;
+	font-size: 1.4	em;
+}
+
+#message_container ul li{
+  color: black;
+  display: block;
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 100px;
+  border-bottom: 3px solid #111111;
+}
+ul li input[type=radio]{
+  position: absolute;
+  visibility: hidden;
+}
+
+ul li label{
+ position: absolute;
+  display: block;
+/*  border: solid 5px black;
+*/  font-weight: 300;
+  font-size: 1.4em;
+  padding: 20px 0px 40px 0px;
+  /*margin-right:25%;
+  margin-top: 6.5%;*/
+  top: 7%;
+  left: 8%;
+  height: 20px;
+  z-index: 9;
+  cursor: pointer;
+  -webkit-transition: all 0.25s linear;
+}
+#sub_box label{
+  margin-right:40%;
+}
+
+ul li:hover label{
+	color: #B2280F;
+}
+ul li .check{
+  display: block;
+  position: absolute;
+  border: 5px solid white;
+  border-radius: 100%;
+  height: 25px;
+  width: 25px;
+  top: 45%;
+  left: 0%;
+  z-index: 5;
+  transition: border .25s linear;
+  -webkit-transition: border .25s linear;
+}
+
+ul li:hover .check {
+  border: 5px solid white;
+}
+ul li .check::before {
+  display: block;
+  position: absolute;
+  content: '';
+  border-radius: 100%;
+  height: 9px;
+  width: 9px;
+  top: 20%;
+  left: 19%;
+  margin: auto;
+  transition: background 0.25s linear;
+  -webkit-transition: background 0.25s linear;
+}
+input[type=radio]:checked ~ .check {
+  border: 5px solid #0DFF92;
+}	
+
+
+input[type=radio]:checked ~ .check::before{
+  background: #0DFF92;
+}
+
+input[type=radio]:checked ~ label{
+  color: #0DFF92;
+}
+
+.back{
+	display: none;
+}
+.shirt_title{
+	color: white;
+	font-size: 1.6em;
+}
+/* For sizing the images in the posts*/
+.small-pic img{
+	height:750px;
+	width: 100%;
+}
+
+.twopics img{
+		float: left;
+		height:600px;
+		width: 50%;
+}
+.small-vid{
+	height: 450px;
+}
+.hovereffect a{
+	color:#1FB9BE  ;
+}
+
+
+/********/
+
+
+
+
+/****/
+
+
+
+/* All queries to resize to different devices */ 
+
+@media(min-width:350px){
+		.navbar-brand p{ font-size: 1em;}
+		.grid-item.expand{
+			width: 100%;
+			height: 180px;
+			z-index: 2;
+			background-color:white;
+		}
+		#music_header{
+			font-size: 2em;
+		}
+		/* For height*/
+		.grid-item{
+			height: 120px;
+		}
+		#blood{
+			top: 350px;
+		}
+		.grid-item-content span{
+			font-size: .85em;
+		}
+		#about_text{
+			font-size: 1.1em;
+		}
+		#right_skull img{
+			width: 90%;
+		}
+		#left_skull img{
+			width: 90%;
+		}
+		#about_title{
+			font-size: 2.1em;
+		}
+	 /*#right_skull{
+	 	margin-top: 110%;
+	 }
+	 #left_skull{
+	 	margin-top: 110%;
+	 }*/
+	 #quote{
+	 	font-size: 3.2vh;
+	 }
+
+	 .panel-title a{
+	 	font-size: 1.6em;
+	 }
+	 #carti_title{
+	 	font-size: 4.2em;
+	 }
+	 ul li label{
+		margin-right: 35%;
+		bottom: 1px;
+	}
+	 #sub_box label{
+	  margin-right: 43%;
+	}
+	#store_title{
+		font-size: 3.5em;
+	}
+		.image_container img{
+			width: 70%;
+			height: 70%;	
+		}
+		.twopics img{
+			float: left;
+			height:200px;
+			width: 50%;
+		}
+		.hovereffect p{
+			font-size:140%;
+		}
+		.hovereffect a{
+			font-size: 140%;
+		}
+
+}
+
+
+@media(min-width:400px){
+		.navbar-brand p{ font-size: 1.1em;
+			margin-top: 6%;}
+		#music_header{
+			font-size: 2.2em;
+		}
+		.grid-item.expand{
+			width: 100%;
+			height: 200px;
+			z-index: 2;
+			background-color:white;
+		}
+		/* For height*/
+		.grid-item{
+			height: 134px;
+		}
+		/*If width needs to be changed */
+		.grid-sizer,
+		.grid-item {
+  			width: 33.3333333333%;
+		}
+		.grid-item-content span{
+			font-size: .85em;
+			overflow: hidden;
+		}
+		#about_text{
+			font-size: 1.1em;
+		}
+		#blood{
+/*			top: 380px;	
+*/		}
+		/*#right_skull img{
+			width: 90%;	
+		}
+		#left_skull img{
+			width: 90%;	
+		}
+		#left_skull{
+			margin-top: 75%;
+		}
+		#right_skull{
+			margin-top: 75%;
+		}*/
+		#quote{
+			font-size: 2.33em;
+		}
+		#about_title{
+			font-size: 2.2em;
+		}
+		#note{
+			font-size: 2.2em;
+		}
+		#decoration_right img{
+			height: 150px;
+		}
+		#decoration_left img{
+			height: 150px;
+		}
+		#carti_title{
+			font-size: 4.6em;
+		}
+		#runner_container img{
+			height: 170px;
+		}
+		#demon_container img{
+			height: 170px;
+		}
+		 ul li label{
+			top: 13%;
+		}
+		ul li .check{
+			top:51%;
+		}
+		#email_header{
+			font-size: 1.5em;
+		}
+		.button{
+			font-size: 1em;
+		}
+		.hovereffect p{
+			font-size:160%;
+		}
+		.hovereffect a{
+			font-size: 160%;
+		}
+		
+
+}
+@media(min-width:450px){
+		.navbar-brand p{ }	
+		#about_text{
+			font-size: 1.2em;
+		}
+		#about_title{
+			font-size: 2.8em;
+		}
+		.grid-item{
+			height: 150px;
+		}
+		.grid-item-content .song_name{
+			font-size: .81em;
+		}
+		#blood{
+			top:320px;
+			left: 34%;
+		}
+		#quote{
+			font-size: 2.8em;
+		}
+	/*	#right_skull{
+			margin-top: 50px;
+		}
+		#left_skull{
+				margin-top: 50px;
+		}*/
+		#about_image{
+			width: 60%;
+			margin-bottom: 12%;
+		}
+		#carti_title{
+			font-size: 6em;
+		}
+		#note{
+			font-size: 3em;
+		}
+		#decoration_right img{
+						height: 175px;
+
+		}
+		#decoration_left img{
+			height: 175px;
+		}
+		#demon_container{
+			margin-top: 28.1%;
+		}
+		 ul li label{
+			margin-right: 45%;
+			font-size: 1.7em;
+			bottom: 4px;
+		}
+		 #sub_box label{
+	 	 margin-right: 54%;
+		}
+		ul li .check{
+			top:55%;
+		}
+		/*Dot in middle*/
+		ul li .check::before{
+			left:20%;
+		}	
+}
+
+/*Change if viewport is 576px or wider */
+@media(min-width:576px){
+		.navbar-brand p{ }
+		/* For height*/
+		.grid-item{
+		/*height: 160px;*/
+			height: 192px;
+		}
+		.grid-item-content .song_name{
+			font-size: 1.05em;
+		}
+		.grid-sizer,
+		.grid-item {
+  				width: 33.333333%;
+		}
+		#about_image{
+			width: 50%;
+			height: 100%;
+		}
+		#blood{
+			margin-top: 0;
+			top:310px;
+			left: 38%;
+		}
+		#quote{
+			font-size: 3.45em;
+		}
+		#about_image{
+			margin-bottom: 20%;
+		}
+		#carti_title{
+			font-size: 6.2em;
+		}
+		#note{
+			font-size: 3em;
+		}
+		#decoration_right img{
+			height: 200px;
+			width: 50%;
+
+		}
+		#decoration_left img{
+			height: 200px;
+			width: 50%;
+		}
+		.carti_img,.carti_vid{
+			width: 100%;
+		}
+		.gallery_back{
+			height: 100%;
+			width: 80%;
+			margin-left: 10%;
+			text-align: center;
+		}
+		#demon_container{
+			margin-top: 10%;
+		}
+		#runner_container{
+			margin-top: 10%;
+		}
+		 ul li label{
+			top: 3%;
+			left: 8%;
+		}
+		 #sub_box label{
+	 	 margin-right: 55%;
+		}
+		ul li .check{
+			top:50%;
+			height: 30px;
+			width: 30px;
+		}
+		/*Dot in middle*/
+		ul li .check::before{
+			top:15%;
+			left:17%;
+			height: 14px;
+			width: 14px;
+		}	
+		ul li label{
+			font-size: 2.2em;
+		}
+		.design_container{
+			width: 100%;
+			height:100%;
+		}
+		#store_title{
+			font-size: 4em;
+		}
+		.shirt_title{
+			font-size: 2.3em;
+		}
+		.button{
+			font-size: 1.4em;
+		}
+		#email_header{
+			font-size: 2em;
+		}
+		.carti_img{
+			width: 90%;
+		}
+		.twopics img{
+			float: left;
+			height:300px;
+			width: 50%;
+		}
+		.hovereffect p{
+			font-size:240%;
+		}
+		.hovereffect a{
+			font-size: 100%;
+		}
+}
+
+/*For blood */
+@media(min-width:689px){
+	#blood{
+		top:340px;
+	}
+	.grid-item{
+			height: 229.666px;
+	}
+	.grid-item-content .song_name{
+			font-size: 1.25em;
+	}
+	#carti_title{
+			font-size: 8em;
+	}
+	#note{
+			font-size: 3.5em;
+		}
+	#decoration_right img{
+			width: 50%;
+		}
+	#decoration_left img{
+			width: 50%;
+		}
+		 ul li label{
+			margin-right: 55%;
+			bottom: 30px;
+		}
+		 #sub_box label{
+	 	 margin-right: 62%;
+		}
+		ul li .check{
+			top:50%;
+			height: 30px;
+			width: 30px;
+		}
+		/*Dot in middle*/
+		ul li .check::before{
+			top:15%;
+			left:17%;
+			height: 14px;
+			width: 14px;
+		}	
+		ul li label{
+			font-size: 2.2em;
+		}
+		.hovereffect p{
+			font-size:300%;
+		}
+		.hovereffect a{
+			font-size: 140%;
+		}
+}
+
+/* THIS IS AN IPAD*/
+@media(min-width:768px){
+		#brand_img{
+				margin-left:35%;
+				padding-right: 10%;
+			}
+		.navbar-brand p{ 
+				font-size: 1.2em; 
+				margin-top: 6%;
+		}
+		#nav_items{
+				font-size: 1.6em; 
+				margin-right: 0;
+				margin-top: .3%;
+		}
+		.grid-sizer,
+		.grid-item {
+  				width: 25%;
+		}
+		.grid-item-content span{
+			font-size: 1em;
+		}
+		.grid-item-content .song_name{
+			font-size: 1.2em;
+		}
+		#music_header{
+			font-size: 3em;
+		}
+		.grid-item{
+			height: 192px;
+		}
+		#about_image img{
+			padding-top: 5%;
+			margin-bottom: 0;
+			width: 65%;
+			height: 100%;
+		}
+		#blood img{
+			top: 54%;
+			left: 29%;
+			position: absolute;
+/*			border: solid white 4px;
+*/			display: block;
+			bottom: 40%;
+			text-align: center;
+			width: 20%;
+			height: 100%;
+		}
+		#about_text{
+			letter-spacing: .9px;			
+			line-height: 1.5em;	
+			font-size: 1.3em;
+		}
+		#about_title{
+			font-size: 3.3em;
+		}
+		#first_par{
+			text-align: center;
+		}
+		/*#quote{
+			font-size: 2.8em;	
+		}*/
+		/*#right_skull {
+			margin-top:50%;
+		}
+		#left_skull {
+			margin-top: 50%;
+		}*/
+	
+		#video_title{
+			font-size: 3.4em;
+		}
+		.panel-heading img{
+ 			width: 45px;
+	 		height: 45px;
+ 			left: 94%;
+ 		}
+ 		.contents-video{
+			height: 320px;
+		}
+		 .panel-title a{
+	 		font-size: 1.9em;
+	 	}
+	 	#carti_title{
+			font-size: 9.2em;
+		}
+		#note{
+			font-size: 3.2em;
+		}
+		#decoration_right img{
+			height: 250px;
+		}
+		#decoration_left img{
+			height: 250px;
+		}
+		#main_gallery video{
+			height: 400px;
+		}
+		#main_gallery img{
+			height: 400px;
+		}
+		#runner_container img{
+			height: 250px;
+		}
+		#demon_container img{
+			height: 250px;
+		}
+		 ul li label{
+			left: 5%;
+		}
+		 #sub_box label{
+	 	 margin-right: 66%;
+		}
+		ul li .check{
+			top:50%;
+			height: 30px;
+			width: 30px;
+		}
+		/*Dot in middle*/
+		ul li .check::before{
+			top:15%;
+			left:17%;
+			height: 14px;
+			width: 14px;
+		}	
+		ul li label{
+			font-size: 2.2em;
+		}
+		.shirt_title{
+			font-size: 1.3em;
+		}
+		.design_container{
+				max-height: 80vh;
+		}
+		.design_container .coming_soon{
+			width: 58%;
+		}
+		.post_writing{
+			font-size: 140%;
+		}
+		figcaption{
+			font-size: 4vh;
+			text-align: center;
+		}
+		.hovereffect p{
+			font-size:240%;
+		}
+		.hovereffect a{
+			font-size: 150%;
+		}
+}
+
+
+/*For blood and skull */
+@media(min-width:841px){
+	/*#right_skull{
+		margin-top: 25%;
+	}
+	#left_skull{
+		margin-top: 25%;
+	}*/
+/*	#quote{
+		font-size: 2.9em;
+	}*/
+	#blood{
+		top: 340px;
+	}
+	.grid-item{
+			height: 210.25px;
+	}
+	#carti_title{
+			font-size: 10em;
+	}
+	#decoration_right img{
+			height: 300px;
+			width: 70%;
+	}
+	#decoration_left img{
+			height: 300px;
+			width: 70%;
+	}
+	#main_gallery video{
+			height: 450px;
+	}
+	#main_gallery img{
+			height: 450px;
+	}
+	 ul li label{
+			margin-right: 500px;
+			bottom: 40%;
+		}
+		 #sub_box label{
+	 	 margin-right: 540px;
+		}
+		ul li .check{
+			top:50%;
+			height: 30px;
+			width: 30px;
+		}
+		/*Dot in middle*/
+		ul li .check::before{
+			top:15%;
+			left:17%;
+			height: 14px;
+			width: 14px;
+		}	
+		ul li label{
+			font-size: 2.2em;
+		}
+		.image_container img{
+			width: 70%;
+			height: 70%;
+			
+		}
+		.image_container{
+		}
+}
+@media(min-width:944px){
+/*	#right_skull{
+		margin-top: 5%;
+	}
+	#left_skull{
+		margin-top: 5%;
+	}*/
+/*	#quote{
+		font-size: 2.9em;
+	}*/
+	#blood{
+		top: 350px;
+		left:43%;
+	}
+	#carti_title{
+			font-size: 12em;
+	}
+	#main_gallery video{
+			height: 500px;
+	}
+	#main_gallery img{
+			height: 500px;
+	}
+	#decoration_right img{
+			height: 300px;
+			width: 60%;
+	}
+	#decoration_left img{
+			height: 300px;
+			width: 60%;
+	}
+
+}
+
+@media(min-width:992px){
+		.navbar-brand p{ font-size: 1.5em; 
+						margin-top: 5%;}
+		#brand_img{margin-top: 10%;}
+		#nav_items{font-size: 1.85em;
+					margin-right: 0;}
+		/* So the fixed nav bar does not block content*/
+		body{
+			padding-top: 65px;
+		}
+		#music_header{
+			font-size: 3.4em;
+		}
+		/* For height*/
+		.grid-item{
+			height: 248	px;
+		}
+		.grid-item-content .song_name{
+			font-size: 1.2em;
+		}
+		#blood{
+			height: 40%;
+			top:400px;
+			left: 42%;
+		}
+		#left_skull{
+			height: 220px;
+			width: 200px;
+		}	
+	/*	#quote{	
+			font-size: 3.7em;	
+		}*/
+		#about_image{
+			margin-left: 25%;
+		}
+		#about_title{
+			font-size: 3.5em;
+		}
+		#about_text{
+			font-size: 1.8em;	
+			margin-top: 57%;
+			text-align: left;
+		}
+		/*#right_skull{
+			margin-top: 40%;
+		}
+		#left_skull{
+			margin-top: 40%;
+		}*/
+		.contents-video{
+			height: 420px;
+		}
+		#vid_container{
+			width: 80%;
+			text-align: center;
+			left: 10%;
+		}
+		 .panel-title a{
+	 		font-size: 2em;
+	 	}
+	 	#video_title{
+	 		font-size: 4.5em;
+	 	}
+		.panel-heading img{
+ 			width: 50px;
+	 		height: 50px;
+ 			left: 94%;
+ 		}
+ 		#main_gallery video{
+/*			height: 500px;
+*/			width: 100%;
+		}
+		#main_gallery img{
+			width: 90%;
+
+		}
+		.gallery_back{
+/*			width: 400px;
+*/		}
+		.gallery_parent{
+/*			margin-left:15%;
+*/			width: 100%;
+		}
+		 ul li label{
+			left:3%; 
+
+		}
+		 #sub_box label{
+	 	 margin-right: 75%;
+		}
+		ul li .check{
+			top:50%;
+			height: 30px;
+			width: 30px;
+		}
+		/*Dot in middle*/
+		ul li .check::before{
+			top:15%;
+			left:17%;
+			height: 14px;
+			width: 14px;
+		}	
+		ul li label{
+			font-size: 2.2em;
+		}
+		.shirt_title{
+			font-size: 1.7em;
+		}
+		.post_writing{
+			font-size: 4vh;
+		}
+		.image_container img{
+			width: 55%;
+			height: 55%;
+		}
+		.twopics img{
+			float: left;
+			width:50%;
+			height: 500px;
+		}
+}
+
+/* Desktops*/
+@media(min-width:1200px){	
+		.navbar-brand p{font-size: 1.80em;  
+						margin-top: 4%;
+					}
+
+		#nav_items{margin-right: 0; font-size: 2em;}
+		#brand_img{
+			margin-top: 10%;
+		}
+		#music_header{
+			font-size: 5em;
+		}
+		/* For height*/
+		.grid-item{
+			height: 300px;
+		}
+		.grid-item.expand{
+			width: 50%;
+			height: 300px;
+			z-index: 2;
+			background-color:white;
+		}
+
+		.grid-item-content .song_name{
+			font-size: 1.4em;
+		}
+
+	/*	#quote{	
+			font-size: 4.9em;	
+		}*/
+		/*#blood{
+			top:550px;
+			margin-bottom: 0;
+		}
+
+		#right_skull{
+			width: 60%;
+			height: 60%;
+		}
+		#left_skull{
+			margin-left: 40%;
+			width: 60%;
+			height: 60%;
+		}*/
+		#about_text{
+			font-size: 1.7em;	
+			margin-top: 0;
+
+		}
+		#about_image{
+			width: 50%;
+			text-align: center;
+			margin-left: 25%;
+		}
+		#about_title{
+			font-size: 5em;
+		}
+		#video_title{
+			font-size: 5em;
+			margin-right: 3%;
+		}
+		#vid_container{
+			left: 9%;
+		}
+		 .panel-title a{
+	 		font-size: 2.8em;
+	 	}
+	 	.contents-video{
+			height: 650px;
+		}
+		.panel-heading img{
+ 			width: 75px;
+	 		height: 75px;
+ 			left: 96%;
+ 			top: 5%;
+ 		}
+ 		#decoration_right img{
+			height: 300px;
+			width: 50%;
+	}
+	#decoration_left img{
+			height: 300px;
+			width: 50%;
+	}
+	 ul li label{
+			margin-right: 75%;
+			bottom: 64%;
+		}
+		 #sub_box label{
+	 	 margin-right: 79%;
+		}
+		ul li .check{
+			top:50%;
+			height: 30px;
+			width: 30px;
+		}
+		/*Dot in middle*/
+		ul li .check::before{
+			top:15%;
+			left:17%;
+			height: 14px;
+			width: 14px;
+		}	
+		ul li label{
+			font-size: 2.2em;
+		}
+		.shirt_title{
+			font-size: 2em;
+		}
+		.button{
+			font-size: 2em;
+		}
+		#email_header{
+			font-size: 2.4em;
+		}
+		#main_gallery video{
+			height: 500px;
+			width: 100%;
+/*			border:solid black 2px;
+*/
+		}
+		.gallery_parent{
+			height: 650px;
+			width: 80%;
+		}
+		.post_writing{
+			font-size: 3.5vh;
+		}
+}
+/* Desktops*/
+
+@media(min-width:1280px){
+ 	/* For height 1280/4*/
+		.grid-item{
+			height: 320px;
+		}
+		.grid-item.expand{
+			width: 50%;
+			height: 320px;
+		}
+		#quote{
+			padding-bottom: 5%;
+			font-size: 4.5em;
+		}
+
+}
+@media(min-width:1366px){
+		.grid-item{
+			height: 341.5px;
+		}
+		.grid-item.expand{
+			width: 50%;
+			height: 341.5px;
+		}
+
+ 	.gallery_parent{
+ 		width: 70%;
+ 	}
+ 	.post_writing{
+			font-size: 3.6vh;
+	}
+}
+@media(min-width:1440px){
+		.grid-item{
+			height: 360px;
+		}
+		.grid-item.expand{
+			width: 50%;
+			height: 360px;
+		}
+
+		.post_writing{
+			font-size: 3.4vh;
+	}
+}
+@media(min-width:1600px){
+		.grid-item{
+			height: 400px;
+		}
+		.grid-item.expand{
+			width: 50%;
+			height: 400px;
+		}
+		.grid-item-content .song_name{
+			font-size: 1.6em;
+		}
+	.gallery_parent{
+ 		width: 60%;
+ 	}
+ 	#decoration_left{
+ 		width: 700px;
+ 		height:300px;
+ 	}
+ 	#decoration_right{
+ 		width: 700px;
+ 		height:300px;
+ 	}
+}
+@media(min-width:1920px){
+		#about_text{
+			font-size: 2em;
+		}
+		.grid-item.expand{
+			width: 50%;
+			height: 480px;
+		}
+		.grid-item{
+			height: 480px;
+		}
+		.grid-item-content .song_name{
+			font-size: 1.9em;
+		}
+	.navbar-brand p{
+		font-size: 2.2em;  
+		margin-top: 4%;
+	}
+	#nav_items{
+		margin-right: 0; 
+		font-size: 3em;
+	}
+	#brand_img{
+		width: 52px;
+		height: 52px;
+		margin-top: 0;
+	}
+ 	#carti_title{
+ 		font-size: 15em;
+ 	}
+ 	.carti_img{
+ 		width: 80%;
+ 	}
+ 	.gallery_parent{
+ 		width: 50%;
+ 		height: 60%;
+ 	}
+ 	.carti_vid{
+ 		width: auto;
+ 	}
+ 	#quote{
+ 		font-size: 5em;
+ 	}
+ 	.post_writing{
+			font-size: 3.2vh;
+	}
+
+}
+@media(min-width:2,560px){
+		.grid-item{
+			height: 640px;
+		}
+	.grid-item.expand{
+			width: 50%;
+			height: 640px;
+		}
+		#quote{
+ 		font-size: 7em;
+ 		}
+ 		#about_text{
+ 			font-size: 2.4em;
+ 		}
+}
+
+
+
+
+
+/* 1366, 1024, 1280 ,1440, 1680, 1600, 1920	*/
