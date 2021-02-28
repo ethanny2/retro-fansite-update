@@ -67,6 +67,9 @@
   "dependencies": {
     "@popperjs/core": "^2.8.6",
     "bootstrap": "^3.3.7",
-    "jquery": "^3.5.1"
+    "get-size": "^2.0.3",
+    "imagesloaded": "^4.1.4",
+    "jquery": "^3.5.1",
+    "masonry-layout": "^4.2.2"
   }
 }

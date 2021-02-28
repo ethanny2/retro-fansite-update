@@ -4,6 +4,7 @@ module.exports = {
     es6: true,
     browser: true,
     node: true,
+    jquery: true
   },
   parserOptions: {
     sourceType: "module",

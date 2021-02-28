@@ -67,15 +67,15 @@ module.exports = merge(common, {
       //   }
       // },
       //Load all .html files
-      {
-        test: /\.(html)$/,
-        use: {
-          loader: "html-loader",
-          options: {
-            // root: path.resolve(__dirname, "dist")
-          }
-        }
-      }
+      // {
+      //   test: /\.(html)$/,
+      //   use: {
+      //     loader: "html-loader",
+      //     options: {
+      //       // root: path.resolve(__dirname, "dist")
+      //     }
+      //   }
+      // }
     ]
   },
   devServer: {

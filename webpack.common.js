@@ -5,7 +5,8 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const PreloadWebpackPlugin = require("preload-webpack-plugin");
 const ScriptExtHtmlWebpackPlugin = require("script-ext-html-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
-const entry = path.resolve(__dirname, "./src/js/index.js");
+const entry1 = path.resolve(__dirname, "./src/js/index.js");
+const entry2 = path.resolve(__dirname, "./src/js/music_effects.js");
 const nodePath = path.resolve(__dirname, "./node_modules");
 const webpack = require("webpack");
 
@@ -23,7 +24,7 @@ module.exports = {
     hints: false
   },
   entry: {
-    main: entry
+    main: [entry1, entry2]
   },
   output: {
     filename: "js/[name].bundle.js",
@@ -100,8 +101,15 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       title: "Unofficial Playboi Carti",
-      filename: "home.html",
-      template: "./src/static/html/main.html",
+      filename: "index.html",
+      template: "./src/static/html/home.html",
+      favicon: "./src/static/images/favicons/favicon.ico",
+      inject: "head"
+    }),
+    new HtmlWebpackPlugin({
+      title: "Unofficial Playboi Carti",
+      filename: "music.html",
+      template: "./src/static/html/music2.html",
       favicon: "./src/static/images/favicons/favicon.ico",
       inject: "head"
     }),
