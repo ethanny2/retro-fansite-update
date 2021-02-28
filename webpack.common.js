@@ -115,7 +115,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: "Unofficial Playboi Carti",
       filename: "music.html",
-      template: "./src/static/html/music2.html",
+      template: "./src/static/html/music.html",
       favicon: "./src/static/images/favicons/favicon.ico",
       inject: "head",
       chunks: ["main", "music"]
@@ -131,7 +131,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: "Unofficial Playboi Carti",
       filename: "videos.html",
-      template: "./src/static/html/videos2.html",
+      template: "./src/static/html/videos.html",
       favicon: "./src/static/images/favicons/favicon.ico",
       inject: "head",
       chunks: ["main", "video"]
