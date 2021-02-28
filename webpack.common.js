@@ -7,11 +7,12 @@ const ScriptExtHtmlWebpackPlugin = require("script-ext-html-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 const entry = path.resolve(__dirname, "./src/js/index.js");
 const nodePath = path.resolve(__dirname, "./node_modules");
+const webpack = require("webpack");
 
 module.exports = {
   target: "web",
   node: {
-    fs: 'empty'
+    fs: "empty"
   },
   stats: {
     chunks: true,
@@ -86,10 +87,21 @@ module.exports = {
     ]
   },
   plugins: [
+    new webpack.ProvidePlugin({
+      $: "jquery",
+      jQuery: "jquery"
+    }),
     new HtmlWebpackPlugin({
-      title: "Threejs ES6 Simple Boilerplate",
+      title: "Unofficial Playboi Carti",
       filename: "index.html",
       template: "./src/static/html/index.html",
+      favicon: "./src/static/images/favicons/favicon.ico",
+      inject: "head"
+    }),
+    new HtmlWebpackPlugin({
+      title: "Unofficial Playboi Carti",
+      filename: "home.html",
+      template: "./src/static/html/main.html",
       favicon: "./src/static/images/favicons/favicon.ico",
       inject: "head"
     }),

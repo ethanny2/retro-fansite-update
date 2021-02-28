@@ -72,7 +72,7 @@ module.exports = merge(common, {
         use: {
           loader: "html-loader",
           options: {
-            root: path.resolve(__dirname, "dist")
+            // root: path.resolve(__dirname, "dist")
           }
         }
       }
