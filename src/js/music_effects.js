@@ -288,7 +288,7 @@ function toggleSoundCloudPlayer(currentItem, currentItemContent) {
   }
 }
 
-$(document).ready(function() {
+document.addEventListener("DOMContentLoaded", function() {
   $(".grid-item").hover(
     function() {
       if (!$(this).hasClass("expand")) {

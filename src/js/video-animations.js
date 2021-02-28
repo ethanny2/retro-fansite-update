@@ -91,18 +91,14 @@ var youtubeLinks = {
 
 function addYoutubeVideo(currentHeading) {
   var cur_parent = $(currentHeading).parent();
-  console.log($(cur_parent).next("div"));
   var idPanel = $(cur_parent).next("div");
   var vidContainer = $(idPanel).find(".contents-video");
-  console.log(vidContainer);
   var video_id = $(idPanel).attr("id");
-  console.log(video_id);
   vidContainer.append(youtubeLinks[video_id]);
 }
 
 function removeAllSpin(currentElement) {
-  console.log("Calling remove all spin");
-  $.each($(".logo"), function(index, val) {
+  $.each($(".logo"), function() {
     if (!$(currentElement).is(this)) {
       $(this).removeClass("spin-class");
     }
@@ -110,16 +106,14 @@ function removeAllSpin(currentElement) {
 }
 
 function removeAllVideos() {
-  console.log("Calling remove all videos");
-  $.each($(".contents-video"), function(index, val) {
-    console.log(this);
+  $.each($(".contents-video"), function() {
     $("iframe").remove();
   });
 }
 
-$(document).ready(function() {
-  $logoClass = $(".panel-title");
-  $logoClass.on("click", function() {
+document.addEventListener("DOMContentLoaded", function() {
+  let logoClass = $(".panel-title");
+  logoClass.on("click", function() {
     var bunny = $(this).find("img");
     removeAllVideos();
     addYoutubeVideo(this);

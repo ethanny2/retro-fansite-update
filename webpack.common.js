@@ -8,6 +8,7 @@ const CopyPlugin = require("copy-webpack-plugin");
 const entry1 = path.resolve(__dirname, "./src/js/index.js");
 const entry2 = path.resolve(__dirname, "./src/js/music_effects.js");
 const entry3 = path.resolve(__dirname, "./src/js/store_functions.js");
+const entry4 = path.resolve(__dirname, "./src/js/video-animations.js");
 const nodePath = path.resolve(__dirname, "./node_modules");
 const webpack = require("webpack");
 
@@ -27,7 +28,8 @@ module.exports = {
   entry: {
     main: entry1,
     music: entry2,
-    store: entry3
+    store: entry3,
+    video: entry4
   },
   output: {
     filename: "js/[name].bundle.js",
@@ -125,6 +127,14 @@ module.exports = {
       favicon: "./src/static/images/favicons/favicon.ico",
       inject: "head",
       chunks: ["main", "store"]
+    }),
+    new HtmlWebpackPlugin({
+      title: "Unofficial Playboi Carti",
+      filename: "videos.html",
+      template: "./src/static/html/videos2.html",
+      favicon: "./src/static/images/favicons/favicon.ico",
+      inject: "head",
+      chunks: ["main", "video"]
     }),
     //Adds rel="preload" to fonts;
     new PreloadWebpackPlugin({
