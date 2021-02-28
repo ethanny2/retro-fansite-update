@@ -1,81 +1,54 @@
 <?php
    header('Access-Control-Allow-Origin: *');
 
-   function scrape($url){
+	function scrape($url){
    		$url = str_replace('<i class="fa fa-play</i></a>', '', $url);
    		$url = trim($url);
-   		//echo $url;
   		$output = file_get_contents($url);
   		return $output;
 	}
  	
 
  	/*URL to fetch data from */ 
-   	$url = 'http://www.pictaram.com/user/vlonecarti/1014768297';
+  $url = 'https://gramho.com/profile/playboicarti/279519379';
 	if(!filter_var($url, FILTER_VALIDATE_URL)) {
   		json_encode(array('error'=>'invalid_url'));
   		die();
 	}else {
 		$page = scrape($url);
-		//echo $page;
-		$start='<article class="item clearfix">';
-		$end = "</article>";
+		$start='<div class="photo">';
+		$end = "</div>";
 		$result = fetchdata($page, $start, $end);
-		/*Check if it is an image or, class="content-image" or if video class="content-image video" */
-		if(strpos($result, 'content-image video')){
-			//echo"THIS IS A VIDEO";
-			$videoSpanStart= '<span class="video-btn">';
-			$videoSpanEnd="</span>";
-			$videoSpan = fetchdata($result,$videoSpanStart,$videoSpanEnd);
-			/* Now pull out the href*/
-			//echo $videoSpan;
-			$hrefStart='<a href="';
-			$hrefEnd = '">';
-			//$dirtyUrl = fetchdata($videoSpan,$hrefStart,$hrefEnd);
-			//echo $dirtyUrl;
-			$cleanUrl = str_replace($hrefStart, '', $videoSpan);
-			$cleanUrl = str_replace($hrefEnd, '', $cleanUrl);
-			//echo $cleanUrl;
-			/*Now we have a link to the actual video scrape it again*/
-			$realVideoPage = scrape($cleanUrl);
-			// echo $realVideoPage;
-			$sourceElement = fetchdata($realVideoPage,'<source src="','"');
-			//echo $sourceElement;
-			//$videoUrl = str_replace('<source src="', "", $sourceElement);
-			//$videoUrl = str_replace('"', '', $videoUrl);
-			$videoUrl = $sourceElement;
-			//echo $videoUrl;
-			echo json_encode(array('vid_url'=>$videoUrl));
-		}else{
-			//echo"THIS IS JUST AN IMAGE";
-			$imageDivStart = '<div class="content-image image">';
-			$imageDivEnd='</a>';
-			$imageDivResult = fetchdata($result,$imageDivStart,$imageDivEnd);
-			//echo $imageDivResult;
-			/*Now pull the image URL out */
-			$imageTagStart = "<img";
-			$imageTagEnd = ">";
-			$imageTagResult = fetchdata($imageDivResult,$imageTagStart,$imageTagEnd);
-			//echo $imageTagResult;
-			/* Finally get the pure url*/
-			$imageUrl=str_replace('src="',"",$imageTagResult);
-			$imageUrl = str_replace('"', "", $imageUrl);
-			//echo $imageUrl;
-			echo json_encode(array('img_url'=>$imageUrl));
-		}
-	}
-	 	function fetchdata($data, $start, $end){
-	 	//echo $data;
-		$data = stristr($data, $start); // Strip code from startposition to end of code
-		//echo $data;
-		$data = substr($data, strlen($start)); // Stripping $start
-		$stop = stripos($data, $end); // Get position of endpoint
-		$data = substr($data, 0, $stop); // Stripcode from startposition to endposition
-		/*Data now contains information, including link from the first/most recent item*/
-		//echo $data;
-		return $data; // return the scraped data 
+		//No way to tell if video from result need to follow link
+		$hrefStart='<a href="';
+		$hrefEnd = '">';
+		$followUrl = fetchdata($result,$hrefStart,$hrefEnd);
+		/* Rescrape now we can tell if its a video or photo*/
+		$page = scrape($followUrl);
+		//If there is a <div class="single-photo"> inside is a video</div>
+    //If there is a <div class="item"> inside is an img</div>
+		$videoStart='<div class="single-photo">';
+		$videoEnd = '</div>';
+		$isVideo = fetchdata($page,$videoStart,$videoEnd);
+    if(empty($isVideo)){
+			$photoStart='<div class="item">';
+			$photoEnd = '</div>';
+			$photo = fetchdata($page,$photoStart,$photoEnd);
+			//Whole image tag with alt and src; why not send this to front-end
+			echo json_encode(array('pic'=>$photo));
+		 }else {
+			 	//Whole image tag with alt and src; why not send this to front-end
+			echo json_encode(array('vid'=>$isVideo));
+		 }
 	}
 
+	function fetchdata($data, $start, $end){
+	 	$data = stristr($data, $start); // Strip code from startposition to end of code
+	 	$data = substr($data, strlen($start)); // Stripping $start
+	 	$stop = stripos($data, $end); // Get position of endpoint
+	 	$data = substr($data, 0, $stop); // Stripcode from startposition to endposition
+	 	return $data; // return the scraped data 
+  }
 
 ?>
 

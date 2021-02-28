@@ -1,17 +1,21 @@
 /*Scraping with php and ajax??? */
+document.addEventListener("DOMContentLoaded", function() {
+  ajaxScrape();
+});
+
 function ajaxScrape() {
   console.log("Calling scrape");
   $.ajax({
-    //   url: 'http://localhost/unofficialplayboicartiupdate/php/scrape.php',
-    url: "../php/scrape.php",
+    //Need to change when in prod
+    url: "../../php/scrape.php",
     dataType: "json",
     type: "POST",
     success: function(response) {
-      if (response.hasOwnProperty("error")) {
+      if (response.error) {
         console.log("Invalid URL");
       } else {
         console.log(response);
-        if (response.hasOwnProperty("img_url")) {
+        if (response.pic) {
           console.log("returned image");
           instertPhoto(response);
         } else {
@@ -20,7 +24,7 @@ function ajaxScrape() {
         }
       }
     },
-    error: function(e) {
+    error: function() {
       $(".rank").html("Invalid URL or Some Error occured!");
     },
     complete: function() {
@@ -30,20 +34,9 @@ function ajaxScrape() {
 }
 
 function instertPhoto(responseObject) {
-  var image = $(
-    '<img class="carti_img slideUp" src="' + responseObject["img_url"] + '">'
-  );
-  $("#main_gallery").append(image);
+  $("#main_gallery").append(responseObject["pic"]);
 }
 
 function insertVideo(responseObject) {
-  var vid = $(
-    '<video class="carti_vid slideUp"  onmouseover="this.play()" onmouseout="this.pause()" loop></video>'
-  );
-  console.log(responseObject["vid_url"]);
-  var source = $(
-    '<source  src="' + responseObject["vid_url"] + '"type="video/mp4">'
-  );
-  vid.append(source);
-  $("#main_gallery").append(vid);
+  $("#main_gallery").append(responseObject["vid"]);
 }
