@@ -7,6 +7,7 @@ const ScriptExtHtmlWebpackPlugin = require("script-ext-html-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 const entry1 = path.resolve(__dirname, "./src/js/index.js");
 const entry2 = path.resolve(__dirname, "./src/js/music_effects.js");
+const entry3 = path.resolve(__dirname, "./src/js/store_functions.js");
 const nodePath = path.resolve(__dirname, "./node_modules");
 const webpack = require("webpack");
 
@@ -24,7 +25,9 @@ module.exports = {
     hints: false
   },
   entry: {
-    main: [entry1, entry2]
+    main: entry1,
+    music: entry2,
+    store: entry3
   },
   output: {
     filename: "js/[name].bundle.js",
@@ -92,26 +95,36 @@ module.exports = {
       $: "jquery",
       jQuery: "jquery"
     }),
-    new HtmlWebpackPlugin({
-      title: "Unofficial Playboi Carti",
-      filename: "index.html",
-      template: "./src/static/html/index.html",
-      favicon: "./src/static/images/favicons/favicon.ico",
-      inject: "head"
-    }),
+    // new HtmlWebpackPlugin({
+    //   title: "Unofficial Playboi Carti",
+    //   filename: "index.html",
+    //   template: "./src/static/html/index.html",
+    //   favicon: "./src/static/images/favicons/favicon.ico",
+    //   inject: "head"
+    // }),
     new HtmlWebpackPlugin({
       title: "Unofficial Playboi Carti",
       filename: "index.html",
       template: "./src/static/html/home.html",
       favicon: "./src/static/images/favicons/favicon.ico",
-      inject: "head"
+      inject: "head",
+      chunks: ["main"]
     }),
     new HtmlWebpackPlugin({
       title: "Unofficial Playboi Carti",
       filename: "music.html",
       template: "./src/static/html/music2.html",
       favicon: "./src/static/images/favicons/favicon.ico",
-      inject: "head"
+      inject: "head",
+      chunks: ["main", "music"]
+    }),
+    new HtmlWebpackPlugin({
+      title: "Unofficial Playboi Carti",
+      filename: "store.html",
+      template: "./src/static/html/store.html",
+      favicon: "./src/static/images/favicons/favicon.ico",
+      inject: "head",
+      chunks: ["main", "store"]
     }),
     //Adds rel="preload" to fonts;
     new PreloadWebpackPlugin({

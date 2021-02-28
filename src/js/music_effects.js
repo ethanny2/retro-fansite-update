@@ -276,25 +276,19 @@ var soundCloudLinks = {
     '<iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/332888418&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>'
 };
 
+let grid;
+
 /* Change to toggleSoundCloudPlayer*/
 function toggleSoundCloudPlayer(currentItem, currentItemContent) {
-  console.log($(currentItem).attr("id"));
   var playerLink = soundCloudLinks[$(currentItem).attr("id")];
-  console.log("Printing Player Linker for current song -->  " + playerLink);
-  //Convert jquery object to node
-  console.log(currentItem);
-  console.log("Is there a player? --> " + $(".player").length);
   if ($(".player").length > 0) {
-    console.log("Removing soundcloud player");
     $(currentItem).remove("iframe");
   } else {
-    console.log("Adding soundcloud player");
     $(currentItemContent).append(playerLink);
   }
 }
 
 $(document).ready(function() {
-  console.log("Hovering!");
   $(".grid-item").hover(
     function() {
       if (!$(this).hasClass("expand")) {
@@ -305,30 +299,26 @@ $(document).ready(function() {
       $(this).removeClass("grow");
     }
   );
-  new Masonry("#grid", {
+  grid = new Masonry("#grid", {
     columnWidth: ".grid-sizer",
     itemSelector: ".grid-item",
     percentPosition: true
   });
   //adjustCoverHeight();
   $("#grid").on("click", ".grid-item-content", function() {
-    console.log("CLICKED ON GRID ITEM");
-    //$('audio').get(0).play();
     var itemContent = this;
     var itemElem = itemContent.parentNode;
     $(itemElem).removeClass("grow");
     removeAllActive();
     toggleSoundCloudPlayer(itemElem, itemContent);
-    //(itemContent);
     setItemContentPixelSize(itemContent);
-    console.log("toggling expand class");
     $(itemElem).toggleClass("expand");
     // force redraw
     // renable default transition
     itemContent.style[transitionProp] = "";
     addTransitionListener(itemContent);
     setItemContentTransitionSize(itemContent, itemElem);
-    // grid();
+    grid.layout();
   });
 });
 
@@ -371,12 +361,7 @@ function setItemContentTransitionSize(itemContent, itemElem) {
 /*If class is already active do not remove the active because the toggleClass will already do that	 */
 /* Also remove the soundCloud player and make the image and span display visible*/
 function removeAllActive() {
-  console.log("Calling remove all active");
   $.each($(".grid-item"), function() {
-    //if( ($(this).hasClass('expand')) ){
-    //	console.log('Current item has expand class');
-    //}else{
-    /* Remove soundcloud player and make all other opened songs close */
     $("iframe").remove();
     $(this).removeClass("expand");
   });

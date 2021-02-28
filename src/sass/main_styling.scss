@@ -15,6 +15,20 @@ head {
   display: initial;
 }
 
+
+.front{
+  transition: all 400ms ease;
+}
+
+.back{
+  transition: all 400ms ease;
+}
+.front.flip,.back.flip{
+  perspective: 100px;
+  transform: rotateY(180deg);
+}
+
+
 .page_list {
   margin: auto 0;
   text-align: center;
@@ -583,69 +597,7 @@ iframe {
   height: 200px;
 }
 
-/***** ****/
 
-/* Nav bar changing colors... red -> white?  or yellow -> white*/
-@-moz-keyframes colors {
-  0% {
-    color: #9d9d9d;
-  }
-  25% {
-    color: #fca2a2;
-  }
-
-  50% {
-    color: #fc6f6f;
-  }
-
-  75% {
-    color: #ff3535;
-  }
-
-  100% {
-    color: #ff0000;
-  }
-}
-@-webkit-keyframes colors {
-  0% {
-    color: #9d9d9d;
-  }
-  25% {
-    color: #fca2a2;
-  }
-
-  50% {
-    color: #fc6f6f;
-  }
-
-  75% {
-    color: #ff3535;
-  }
-
-  100% {
-    color: #ff0000;
-  }
-}
-@keyframes colors {
-  0% {
-    color: #9d9d9d;
-  }
-  25% {
-    color: #fca2a2;
-  }
-
-  50% {
-    color: #fc6f6f;
-  }
-
-  75% {
-    color: #ff3535;
-  }
-
-  100% {
-    color: #ff0000;
-  }
-}
 
 /**Main.html styling *****/
 
@@ -953,12 +905,7 @@ figcaption {
   font-style: normal;
   padding: 5px;
 }
-#second_image img {
-  /*	float: right;
-*/
-}
-.image_container figure {
-}
+
 
 /*********/
 
@@ -1007,14 +954,12 @@ label {
   margin-top: 9%;
   height: 100%;
   width: 100%;
-  /*	border: solid black 3px;
-*/
+  min-height: 50rem;
   text-align: center;
   position: relative;
   overflow: hidden;
   display: inline-block;
-  /*  	background-color: #DAD2D2  ;
-*/
+  background-color: #adadad9f;
 }
 
 .design_container img {
@@ -1171,7 +1116,7 @@ input[type="radio"]:checked ~ label {
   display: none;
 }
 .shirt_title {
-  color: white;
+  color:black;
   font-size: 1.6em;
 }
 /* For sizing the images in the posts*/
