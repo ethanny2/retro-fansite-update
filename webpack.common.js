@@ -155,6 +155,10 @@ module.exports = {
       {
         from: path.resolve(__dirname, "./functions"),
         to: "./functions/"
+      },
+      {
+        from: path.resolve(__dirname, "./src/php"),
+        to: "./php/"
       }
     ])
   ],
