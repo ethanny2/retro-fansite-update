@@ -1243,6 +1243,7 @@ input[type="radio"]:checked ~ label {
 
 #home {
   display:none;
+  white-space: nowrap; 
 }
 
 /********/
@@ -1251,15 +1252,19 @@ input[type="radio"]:checked ~ label {
 
 /* All queries to resize to different devices */
 
+@media (min-width: 400px) {
+  #home {
+    display:inherit;
+  }
+}
+
 @media (min-width: 320px) {
   .pagination-left,.pagination-right{
     svg{
       width:5rem;
     }
   }
-  #home {
-    display:inherit;
-  }
+
   .navbar-brand p {
     font-size: 1em;
   }
