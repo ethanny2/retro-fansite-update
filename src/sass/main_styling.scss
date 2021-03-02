@@ -25,7 +25,7 @@ body::before {
   background: url("../static/images/electric_background.png") no-repeat center
     center fixed;
   background-size: cover;
-  filter:  hue-rotate(250deg);
+  filter:  hue-rotate(250deg) blur(1px);
   background-repeat: no-repeat;
 }
 
