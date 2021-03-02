@@ -11,6 +11,10 @@
 //   background: #ff0000;
 // }
 
+#main_game {
+  margin-top: 5rem;
+}
+
 head {
   display: initial;
 }
@@ -63,10 +67,10 @@ a:hover {
 
   color: white;
   background: black;
-  width: 5rem;
-  min-width: 5rem;
+  width: 3rem;
+  min-width: 3rem;
   svg {
-    width: 10rem;
+    width: 3rem;
   }
 }
 .pagination-left {
@@ -93,13 +97,13 @@ a:hover {
   margin: 3rem 0;
 }
 .post {
-  text-align: center;
+  text-align: initial;
   color: #e7e6e6;
   background: rgb(39, 31, 31);
   margin: 0 auto;
   width: 80vw;
   max-width: 80vw;
-  font-size: 2.5rem;
+  font-size: 1.7rem;
   border-radius: 10px;
   padding: 2rem;
   height: auto;
@@ -131,15 +135,18 @@ a:hover {
     width: 100%;
   }
   img {
-    width: 75%;
+    width:100%;
   }
   figure {
     // border: 1px solid rgba(128, 128, 128, 0.623);
-    width: 50%;
+    width:100%;
   }
   footer {
     margin-top: 5rem;
     font-size: 2.3rem;
+  }
+  header{
+    text-align:center;
   }
 }
 
@@ -306,12 +313,13 @@ html {
   text-align: left;
   font-size: 1.5rem;
   position: absolute;
-  color: black;
-  /* Fallback*/
-  background: rgb(255, 255, 255);
-  background: rgba(255, 255, 255, 0.85);
+  color: #e7e6e6;
+  background: rgb(39, 31, 31);
   text-transform: capitalize;
-  display: block;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
 }
 
 .grid-item-content .close-button {
@@ -721,7 +729,7 @@ iframe {
   width: 100%;
   padding: 0;
   margin: 0;
-  height: 200px;
+  height: 400px;
 }
 
 /**Main.html styling *****/
@@ -1044,11 +1052,27 @@ figcaption {
   left: 0;
 }
 
-#store_title {
-  color: white;
-  font-style: italic;
-  font-size: 3em;
+.title {
+  font-size: 3rem;
   text-align: center;
+  color: #e7e6e6;
+  background: rgb(39, 31, 31);
+  width: auto;
+  white-space: nowrap;
+  padding: 1rem;
+  font-style: italic;
+  margin: 2rem 0;
+}
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.center-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #message_container {
@@ -1072,24 +1096,25 @@ label {
 }
 
 .design_container {
-  margin-top: 9%;
+  margin: 10% 0;
   height: 100%;
   width: 100%;
-  min-height: 50rem;
+  min-height: 300px;
+  max-height: 500px;
   text-align: center;
   position: relative;
-  overflow: hidden;
-  display: inline-block;
-  background-color: #adadad9f;
+  // overflow: hidden;
+  // display: inline-block;
+  // background-color: #adadad9f;
 }
 
 .design_container img {
   height: 100%;
-  width: 100%;
+  width: 90%;
 }
 
 .design_container .coming_soon {
-  width: 55%;
+  width: 35%;
   height: 40%;
 }
 
@@ -1237,8 +1262,10 @@ input[type="radio"]:checked ~ label {
   display: none;
 }
 .shirt_title {
-  color: black;
   font-size: 1.6em;
+  color: #e7e6e6;
+  background: rgb(39, 31, 31);
+  width: 40%;
 }
 /* For sizing the images in the posts*/
 .small-pic img {
@@ -1262,6 +1289,13 @@ input[type="radio"]:checked ~ label {
   display: none;
   white-space: nowrap;
 }
+.pagination-left,
+.pagination-right {
+
+  svg {
+    width: 3rem;
+  }
+}
 
 /********/
 
@@ -1276,13 +1310,7 @@ input[type="radio"]:checked ~ label {
 }
 
 @media (min-width: 320px) {
-  .pagination-left,
-  .pagination-right {
-    svg {
-      width: 5rem;
-    }
-  }
-
+ 
   .navbar-brand p {
     font-size: 1em;
   }
@@ -1515,6 +1543,13 @@ input[type="radio"]:checked ~ label {
 
 /*Change if viewport is 576px or wider */
 @media (min-width: 576px) {
+  .design_container img {
+    width: 60%;
+  }
+  .design_container .coming_soon {
+    height: 100%;
+    width: 30%;
+  }
   .navbar-brand p {
   }
   /* For height*/
@@ -1628,6 +1663,13 @@ input[type="radio"]:checked ~ label {
 
 /*For blood */
 @media (min-width: 689px) {
+  .design_container .coming_soon {
+    height: 100%;
+    width: 60%;
+  }
+  .title {
+    font-size: 4rem;
+  }
   #blood {
     top: 340px;
   }
@@ -1681,6 +1723,11 @@ input[type="radio"]:checked ~ label {
 
 /* THIS IS AN IPAD*/
 @media (min-width: 768px) {
+  .design_container img {
+    height: 100%;
+    width: 100%;
+  }
+
   #brand_img {
     margin-left: 35%;
     padding-right: 10%;
@@ -1758,7 +1805,7 @@ input[type="radio"]:checked ~ label {
     left: 94%;
   }
   .contents-video {
-    height: 320px;
+    height: 400px;
   }
   .panel-title a {
     font-size: 1.9em;
@@ -1814,9 +1861,7 @@ input[type="radio"]:checked ~ label {
   .design_container {
     max-height: 80vh;
   }
-  .design_container .coming_soon {
-    width: 58%;
-  }
+
   .post_writing {
     font-size: 140%;
   }
@@ -1834,6 +1879,16 @@ input[type="radio"]:checked ~ label {
 
 /*For blood and skull */
 @media (min-width: 841px) {
+  .post {
+    font-size: 2.5rem;
+    text-align: center;
+    .img {
+      width:75%;
+    }
+    figure{
+      width:50%;
+    }
+  }
   /*#right_skull{
 		margin-top: 25%;
 	}
@@ -1929,6 +1984,19 @@ input[type="radio"]:checked ~ label {
 }
 
 @media (min-width: 992px) {
+  .post{
+    width: 50vw;
+    min-width: 50vw;
+  }
+  
+.pagination-left,
+.pagination-right {
+  width:5rem;
+  min-width: 5rem;
+  svg {
+    width: 5rem;
+  }
+}
   .navbar-brand p {
     font-size: 1.5em;
     margin-top: 5%;
@@ -2086,7 +2154,7 @@ input[type="radio"]:checked ~ label {
   }
 
   .grid-item-content .song_name {
-    font-size: 2rem;
+    font-size: 2.3rem;
   }
 
   /*	#quote{	
@@ -2194,6 +2262,9 @@ input[type="radio"]:checked ~ label {
 
 @media (min-width: 1280px) {
   /* For height 1280/4*/
+  .design_container .coming_soon {
+    width: 50%;
+  }
   .grid-item {
     height: 320px;
   }

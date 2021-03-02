@@ -5,9 +5,9 @@ let posts = [
 <div class="col-xs-12">
   <article class="post cf">
     <header>
-      <h1>
+      <h2>
         Kid Cudi Interviews Playboi Carti
-      </h1>
+      </h2>
     </header>
     <p>
       Nearly 3 months after the release of Playboi Carti's sophmore
@@ -56,9 +56,9 @@ let posts = [
 <div class="col-xs-12">
   <article class="post cf">
     <header>
-      <h1>
-        M3tamorphosis Music Video
-      </h1>
+      <h2>
+        M3tamorphosis Video
+      </h2>
     </header>
     <p>
      Days off the release of his #1 billboard top 100 spot album, Playboi
@@ -96,9 +96,9 @@ let posts = [
 <div class="col-xs-12">
 <article class="post cf">
   <header>
-    <h1>
+    <h2>
       M3tamorphosis Music Video
-    </h1>
+    </h2>
   </header>
   <p>
    Days off the release of his #1 billboard top 100 spot album, Playboi
@@ -136,7 +136,7 @@ let posts = [
 <div class="col-xs-12">
 <article class="post cf">
   <header>
-    <h1>WLR Release</h1>
+    <h2>WLR Release</h2>
   </header>
   <p>
     Playboi Carti's long anticipated sophmore album; WLR (whole lotta'
