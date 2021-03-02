@@ -50,6 +50,7 @@
             class="navbar-toggle"
             data-toggle="collapse"
             data-target="#my_top_bar"
+            aria-label="Toggle Menu"
           >
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -104,7 +105,10 @@
           <div id="note">
             <p>
               Media from
-              <a target="_blank" href="https://www.instagram.com/playboicarti/"
+              <a
+                rel="noopener"
+                target="_blank"
+                href="https://www.instagram.com/playboicarti/"
                 >Instagram</a
               >
             </p>
@@ -120,93 +124,18 @@
         </div>
         <!--Gallery Back end -->
       </div>
-      <div class="row post-row">
-        <div class="col-xs-12">
-          <article class="post cf">
-            <header>
-              <h1>WLR Release</h1>
-            </header>
-            <p>
-              Playboi Carti's long anticipated sophmore album; WLR (whole lotta'
-              red), stealth dropped on Dec 25, 2020 nearly 2 years after his
-              original album "Die Lit" debuted.
-            </p>
-            <figure class="left">
-              <img src="../images/post1-wlr.webp" alt="test" />
-              <figcaption>
-                Album Cover art
-              </figcaption>
-            </figure>
-            <p>
-              Sales projections for the album have exceeded expectations landing
-              the artist his first spot in the billboard top 100.
-            </p>
-            <blockquote class="quote-right">
-              " Immediately after its release, the first-week sales projections
-              emerged and they were pretty high. Industry forecasters predicted
-              that he would be pushing somewhere between 125,000-135,000 in its
-              first week" - hotnewhiphop.com
-            </blockquote>
-            <footer>
-              <p>
-                Source
-                <a
-                  href="
-                https://www.hotnewhiphop.com/playboi-cartis-whole-lotta-red-first-week-sales-are-in-news.124003.html
-                "
-                  >hotnewhiphop</a
-                >
-              </p>
-              <p class="date">Posted Dec 25, 2020</p>
-            </footer>
-          </article>
-        </div>
-      </div>
-      <div class="row post-row">
-        <div class="col-xs-12">
-          <article class="post cf">
-            <header>
-              <h1>WLR Release</h1>
-            </header>
-            <p>
-              Playboi Carti's long anticipated sophmore album; WLR (whole lotta'
-              red), stealth dropped on Dec 25, 2020 nearly 2 years after his
-              original album "Die Lit" debuted.
-            </p>
-            <figure class="left">
-              <img src="../images/post1-wlr.webp" alt="test" />
-              <figcaption>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </figcaption>
-            </figure>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. A vero
-              deleniti, voluptates voluptatibus dolorem odio alias unde! Quod
-              itaque perferendis, dolor modi corrupti, doloremque consequatur
-              ut, sunt quidem eius consectetur?
-            </p>
-            <blockquote class="quote-right">
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit." -
-              person
-            </blockquote>
-            <footer>
-              <p>
-                Soures from Lorem ipsum dolor sit amet consectetur adipisicing
-                elit.
-              </p>
-              <p class="date">Posted Dec 25, 2020</p>
-            </footer>
-          </article>
-        </div>
-      </div>
+      <section id="post-section"></section>
       <div class="row pagination-main">
         <div class="col-xs-3 no-pad">
-          <div class="pagination-left">
+          <div class="pagination-left ">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
+              class="disable"
+              id="left-arrow"
+              aria-label="Left Arrow"
             >
               <path
                 stroke-linecap="round"
@@ -229,6 +158,8 @@
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
+              id="right-arrow"
+              aria-label="Right Arrow"
             >
               <path
                 stroke-linecap="round"

@@ -14,8 +14,8 @@
 head {
   display: initial;
 }
-.no-pad{
-  padding:0;
+.no-pad {
+  padding: 0;
 }
 body {
   background: url("../static/images/electric_background.png") no-repeat center
@@ -43,27 +43,39 @@ body {
 }
 
 a {
-  color:#9d9d9d;
-  text-decoration:none;
+  color: #9d9d9d;
+  text-decoration: none;
 }
 
-a:hover{
-  text-decoration:none;
-  color:white;
+a:hover {
+  text-decoration: none;
+  color: white;
+}
+
+.disable {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .pagination-left,
 .pagination-right {
-  color: black;
+  cursor: pointer;
+
+  color: white;
+  background: black;
+  width: 5rem;
+  min-width: 5rem;
   svg {
     width: 10rem;
   }
 }
 .pagination-left {
   text-align: right;
+  margin-left: auto;
 }
 .pagination-right {
   text-align: left;
+  margin-right: auto;
 }
 .pagination-middle {
   text-align: center;
@@ -82,7 +94,6 @@ a:hover{
 }
 .post {
   text-align: center;
-
   color: #e7e6e6;
   background: rgb(39, 31, 31);
   margin: 0 auto;
@@ -92,12 +103,12 @@ a:hover{
   border-radius: 10px;
   padding: 2rem;
   height: auto;
-  blockquote{
+  blockquote {
     padding: 1rem;
     margin: 3rem 0;
   }
-  .date{
-    color:gray;
+  .date {
+    color: #e2dede;
     margin-top: 2rem;
   }
   .quote-left {
@@ -116,6 +127,9 @@ a:hover{
     float: right;
     padding: 2rem;
   }
+  figure.middle {
+    width: 100%;
+  }
   img {
     width: 75%;
   }
@@ -123,18 +137,20 @@ a:hover{
     // border: 1px solid rgba(128, 128, 128, 0.623);
     width: 50%;
   }
-  footer{
-    margin-top:5rem;
+  footer {
+    margin-top: 5rem;
     font-size: 2.3rem;
   }
 }
 
 .front {
   transition: all 400ms ease;
+  cursor: pointer;
 }
 
 .back {
   transition: all 400ms ease;
+  cursor: pointer;
 }
 .front.flip,
 .back.flip {
@@ -288,7 +304,7 @@ html {
   /*Change z-index so they dont overlap */
   z-index: 0;
   text-align: left;
-  font-size: 0.73em;
+  font-size: 1.5rem;
   position: absolute;
   color: black;
   /* Fallback*/
@@ -585,12 +601,13 @@ iframe {
 .panel-heading {
   width: 100%;
   height: 100%;
-  background-color: white;
+
+  background: rgb(39, 31, 31);
 }
 .panel-title a {
   text-align: left;
   display: block;
-  color: black;
+  color: #e7e6e6;
   padding: 15px 15px 15px 0;
   position: relative;
   font-size: 1.4em;
@@ -1242,8 +1259,8 @@ input[type="radio"]:checked ~ label {
 }
 
 #home {
-  display:none;
-  white-space: nowrap; 
+  display: none;
+  white-space: nowrap;
 }
 
 /********/
@@ -1254,14 +1271,15 @@ input[type="radio"]:checked ~ label {
 
 @media (min-width: 400px) {
   #home {
-    display:inherit;
+    display: inherit;
   }
 }
 
 @media (min-width: 320px) {
-  .pagination-left,.pagination-right{
-    svg{
-      width:5rem;
+  .pagination-left,
+  .pagination-right {
+    svg {
+      width: 5rem;
     }
   }
 
@@ -1285,7 +1303,7 @@ input[type="radio"]:checked ~ label {
     top: 350px;
   }
   .grid-item-content span {
-    font-size: 0.85em;
+    font-size: 2rem;
   }
   #about_text {
     font-size: 1.1em;
@@ -1366,7 +1384,7 @@ input[type="radio"]:checked ~ label {
     width: 33.3333333333%;
   }
   .grid-item-content span {
-    font-size: 0.85em;
+    font-size: 2rem;
     overflow: hidden;
   }
   #about_text {
@@ -1444,7 +1462,7 @@ input[type="radio"]:checked ~ label {
     height: 150px;
   }
   .grid-item-content .song_name {
-    font-size: 0.81em;
+    font-size: 1.5rem;
   }
   #blood {
     top: 320px;
@@ -1505,7 +1523,7 @@ input[type="radio"]:checked ~ label {
     height: 192px;
   }
   .grid-item-content .song_name {
-    font-size: 1.05em;
+    font-size: 1.5rem;
   }
   .grid-sizer,
   .grid-item {
@@ -1617,7 +1635,7 @@ input[type="radio"]:checked ~ label {
     height: 229.666px;
   }
   .grid-item-content .song_name {
-    font-size: 1.25em;
+    font-size: 1.5rem;
   }
   #carti_title {
     font-size: 8em;
@@ -1681,10 +1699,10 @@ input[type="radio"]:checked ~ label {
     width: 25%;
   }
   .grid-item-content span {
-    font-size: 1em;
+    font-size: 2rem;
   }
   .grid-item-content .song_name {
-    font-size: 1.2em;
+    font-size: 1.5rem;
   }
   #music_header {
     font-size: 3em;
@@ -1934,7 +1952,7 @@ input[type="radio"]:checked ~ label {
     height: 248 px;
   }
   .grid-item-content .song_name {
-    font-size: 1.2em;
+    font-size: 1.5rem;
   }
   #blood {
     height: 40%;
@@ -2068,7 +2086,7 @@ input[type="radio"]:checked ~ label {
   }
 
   .grid-item-content .song_name {
-    font-size: 1.4em;
+    font-size: 2rem;
   }
 
   /*	#quote{	
