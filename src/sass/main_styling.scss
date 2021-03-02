@@ -1,32 +1,132 @@
-html {
-  overflow: scroll;
-  overflow-x: hidden;
-}
-::-webkit-scrollbar {
-  width: 0px; /* remove scrollbar space */
-  background: transparent; /* optional: just make scrollbar invisible */
-}
+// html {
+//   overflow: scroll;
+//   overflow-x: hidden;
+// }
+// ::-webkit-scrollbar {
+//   width: 0px; /* remove scrollbar space */
+//   background: transparent; /* optional: just make scrollbar invisible */
+// }
 /* optional: show position indicator in red */
-::-webkit-scrollbar-thumb {
-  background: #ff0000;
-}
+// ::-webkit-scrollbar-thumb {
+//   background: #ff0000;
+// }
 
 head {
   display: initial;
 }
-
-body::before {
-  content: "";
-  top: 0;
-  left: 0;
-  width: 100%;
-  min-height: 100vh;
-  position: absolute;
+.no-pad{
+  padding:0;
+}
+body {
   background: url("../static/images/electric_background.png") no-repeat center
     center fixed;
   background-size: cover;
-  filter:  hue-rotate(250deg) blur(1px);
   background-repeat: no-repeat;
+}
+
+.cf:before,
+.cf:after {
+  content: " "; /* 1 */
+  display: table; /* 2 */
+}
+
+.cf:after {
+  clear: both;
+}
+
+/**
+* For IE 6/7 only
+* Include this rule to trigger hasLayout and contain floats.
+*/
+.cf {
+  *zoom: 1;
+}
+
+a {
+  color:#9d9d9d;
+  text-decoration:none;
+}
+
+a:hover{
+  text-decoration:none;
+  color:white;
+}
+
+.pagination-left,
+.pagination-right {
+  color: black;
+  svg {
+    width: 10rem;
+  }
+}
+.pagination-left {
+  text-align: right;
+}
+.pagination-right {
+  text-align: left;
+}
+.pagination-middle {
+  text-align: center;
+  img {
+    width: 25%;
+  }
+}
+
+.pagination-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.post-row {
+  margin: 3rem 0;
+}
+.post {
+  text-align: center;
+
+  color: #e7e6e6;
+  background: rgb(39, 31, 31);
+  margin: 0 auto;
+  width: 80vw;
+  max-width: 80vw;
+  font-size: 2.5rem;
+  border-radius: 10px;
+  padding: 2rem;
+  height: auto;
+  blockquote{
+    padding: 1rem;
+    margin: 3rem 0;
+  }
+  .date{
+    color:gray;
+    margin-top: 2rem;
+  }
+  .quote-left {
+    border-left: 5px solid #eee;
+    border-right: none;
+  }
+  .quote-right {
+    border-left: none;
+    border-right: 5px solid #eee;
+  }
+  .left {
+    float: left;
+    padding: 2rem;
+  }
+  .right {
+    float: right;
+    padding: 2rem;
+  }
+  img {
+    width: 75%;
+  }
+  figure {
+    // border: 1px solid rgba(128, 128, 128, 0.623);
+    width: 50%;
+  }
+  footer{
+    margin-top:5rem;
+    font-size: 2.3rem;
+  }
 }
 
 .front {
@@ -75,15 +175,10 @@ body {
   padding: 0;
   font-family: "Roboto Slab", serif;
   margin-top: 5.5rem;
-  overflow:auto;
-  // background: url("../static/images/hell_background.gif") no-repeat center fixed;
-  // -webkit-background-size: cover;
-  // -moz-background-size: cover;
-  // -o-background-size: cover;
-  // background-size: cover;
+  overflow: auto;
+  height: auto;
 }
 
-body,
 html {
   width: 100%;
   height: 100%;
@@ -655,12 +750,12 @@ iframe {
 }
 
 #carti_title {
-  color: white;
-  font-style: italic;
+  color: #e0e0e0;
+  background: rgb(39, 31, 31);
   font-size: 4em;
   padding: 0;
-  /*	border: solid white 3px;
-*/
+  // border: solid white 3px;
+  margin-top: 2rem;
   text-align: center;
 }
 #decoration_left {
@@ -721,7 +816,6 @@ iframe {
   border-radius: 5px;
 }
 .gallery_back {
-  width: 100%;
   padding: 0;
   margin: 0;
   background-color: rgba(255, 255, 255, 1);
@@ -733,8 +827,6 @@ iframe {
   padding: 0;
   margin: 0 auto;
   text-align: center;
-  margin-top: 2%;
-  margin-bottom: 2%;
 }
 
 #note {
@@ -1149,13 +1241,25 @@ input[type="radio"]:checked ~ label {
   color: #1fb9be;
 }
 
+#home {
+  display:none;
+}
+
 /********/
 
 /****/
 
 /* All queries to resize to different devices */
 
-@media (min-width: 350px) {
+@media (min-width: 320px) {
+  .pagination-left,.pagination-right{
+    svg{
+      width:5rem;
+    }
+  }
+  #home {
+    display:inherit;
+  }
   .navbar-brand p {
     font-size: 1em;
   }
@@ -1436,9 +1540,7 @@ input[type="radio"]:checked ~ label {
     width: 100%;
   }
   .gallery_back {
-    height: 100%;
-    width: 80%;
-    margin-left: 10%;
+    height: auto;
     text-align: center;
   }
   #demon_container {
@@ -1519,10 +1621,10 @@ input[type="radio"]:checked ~ label {
     font-size: 3.5em;
   }
   #decoration_right img {
-    width: 50%;
+    width: 100%;
   }
   #decoration_left img {
-    width: 50%;
+    width: 100%;
   }
   ul li label {
     margin-right: 55%;
@@ -1729,11 +1831,11 @@ input[type="radio"]:checked ~ label {
   }
   #decoration_right img {
     height: 300px;
-    width: 70%;
+    width: 100%;
   }
   #decoration_left img {
     height: 300px;
-    width: 70%;
+    width: 100%;
   }
   #main_gallery video {
     height: 450px;
@@ -1795,11 +1897,11 @@ input[type="radio"]:checked ~ label {
   }
   #decoration_right img {
     height: 300px;
-    width: 60%;
+    width: 100%;
   }
   #decoration_left img {
     height: 300px;
-    width: 60%;
+    width: 100%;
   }
 }
 
@@ -2014,11 +2116,11 @@ input[type="radio"]:checked ~ label {
   }
   #decoration_right img {
     height: 300px;
-    width: 50%;
+    width: 100%;
   }
   #decoration_left img {
     height: 300px;
-    width: 50%;
+    width: 100%;
   }
   ul li label {
     margin-right: 75%;
@@ -2125,11 +2227,11 @@ input[type="radio"]:checked ~ label {
     width: 60%;
   }
   #decoration_left {
-    width: 700px;
+    width: 100%;
     height: 300px;
   }
   #decoration_right {
-    width: 700px;
+    width: 100%;
     height: 300px;
   }
 }
