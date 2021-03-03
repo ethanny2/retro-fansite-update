@@ -7,8 +7,7 @@ const path = require("path");
 const CompressionPlugin = require("compression-webpack-plugin");
 const glob = require("glob");
 const PurgecssPlugin = require("purgecss-webpack-plugin");
-const ImageminPlugin = require("imagemin-webpack-plugin").default;
-const imageminMozjpeg = require("imagemin-mozjpeg");
+const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 
 module.exports = merge(common, {
   mode: "production",
@@ -30,7 +29,8 @@ module.exports = merge(common, {
             loader: "file-loader",
             options: {
               outputPath: "images/",
-              name: "[name].[contenthash].[ext]",
+              name: "[name].[ext]",
+              // name: "[name].[contenthash].[ext]",
               esModule: false
             }
           }
@@ -90,22 +90,43 @@ module.exports = merge(common, {
       filename: "css/style.[contenthash].css",
       chunkFilename: "css/style.[contenthash].css"
     }),
-    new ImageminPlugin({
-      optipng: {
-        optimizationLevel: 6
-      },
-      plugins: [
-        imageminMozjpeg({
-          quality: 100,
-          progressive: true
-        })
-      ]
-    }),
+    // new ImageminPlugin({
+    //   optipng: {
+    //     optimizationLevel: 6
+    //   },
+    //   plugins: [
+    //     imageminMozjpeg({
+    //       quality: 100,
+    //       progressive: true
+    //     })
+    //   ]
+    // }),
     new CompressionPlugin({
       test: /\.(html|css|js)(\?.*)?$/i
     }),
     new PurgecssPlugin({
       paths: glob.sync("src/**/*", { nodir: true })
+    }),
+    new ImageMinimizerPlugin({
+      minimizerOptions: {
+        // Lossless optimization with custom option
+        // Feel free to experiment with options for better result for you
+        plugins: [
+          ["gifsicle", { interlaced: true }],
+          ["jpegtran", { progressive: true }],
+          ["optipng", { optimizationLevel: 5 }],
+          [
+            "svgo",
+            {
+              plugins: [
+                {
+                  removeViewBox: false
+                }
+              ]
+            }
+          ]
+        ]
+      }
     })
   ],
   optimization: {
