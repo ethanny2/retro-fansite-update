@@ -179,7 +179,7 @@ let posts = [
   </footer>
 </article>
 </div>
-</div>`,
+</div>`
 ];
 document.addEventListener("DOMContentLoaded", function () {
   const leftArrow = document.getElementById("left-arrow");
@@ -225,7 +225,7 @@ function ajaxScrape() {
     },
     complete: function () {
       console.log("Done with AJAX function");
-    },
+    }
   });
 }
 

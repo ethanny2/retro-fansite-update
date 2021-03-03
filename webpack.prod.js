@@ -13,13 +13,18 @@ const ImageminWebpWebpackPlugin = require("imagemin-webp-webpack-plugin");
 module.exports = merge(common, {
   mode: "production",
   devtool: "cheap-module-eval-source-map",
-  node: {
-    fs: "empty",
+  resolve: {
+    fallback: {
+      fs: false
+    }
   },
+  // node: {
+  //   fs: "empty",
+  // },
   output: {
     // Contenthash substitution used for cache bursting
     filename: "js/[name].[contenthash].bundle.js",
-    path: path.resolve(__dirname, "dist"),
+    path: path.resolve(__dirname, "dist")
   },
   module: {
     rules: [
@@ -32,10 +37,10 @@ module.exports = merge(common, {
               outputPath: "images/",
               name: "[name].[ext]",
               // name: "[name].[contenthash].[ext]",
-              esModule: false,
-            },
-          },
-        ],
+              esModule: false
+            }
+          }
+        ]
       },
       // Loads all audio files;
       {
@@ -45,9 +50,9 @@ module.exports = merge(common, {
           options: {
             outputPath: "audio/",
             name: "[name].[contenthash].[ext]",
-            esModule: false,
-          },
-        },
+            esModule: false
+          }
+        }
       },
       // Loads all font files
       {
@@ -57,9 +62,9 @@ module.exports = merge(common, {
           options: {
             outputPath: "fonts/",
             name: "[name].[contenthash].[ext]",
-            esModule: false,
-          },
-        },
+            esModule: false
+          }
+        }
       },
       // Loads all JSON and text files; add more based on your needs
       // {
@@ -80,16 +85,20 @@ module.exports = merge(common, {
           loader: "html-loader",
           options: {
             minimize: true,
-            root: path.resolve(__dirname, "dist"),
-          },
-        },
-      },
-    ],
+            root: path.resolve(__dirname, "dist")
+          }
+        }
+      }
+    ]
   },
   plugins: [
+    // new MiniCssExtractPlugin({
+    //   filename: "css/style.[contenthash].css",
+    //   chunkFilename: "css/style.[contenthash].css"
+    // }),
     new MiniCssExtractPlugin({
-      filename: "css/style.[contenthash].css",
-      chunkFilename: "css/style.[contenthash].css",
+      filename: "[name].[contenthash].css",
+      chunkFilename: "[id].css"
     }),
     // new ImageminPlugin({
     //   optipng: {
@@ -103,12 +112,11 @@ module.exports = merge(common, {
     //   ]
     // }),
     new CompressionPlugin({
-      test: /\.(html|css|js)(\?.*)?$/i,
+      test: /\.(html|css|js)(\?.*)?$/i
     }),
     new PurgecssPlugin({
-      paths: glob.sync("src/**/*", { nodir: true }),
+      paths: glob.sync("src/**/*", { nodir: true })
     }),
-    new ImageminWebpWebpackPlugin(),
     new ImageMinimizerPlugin({
       minimizerOptions: {
         // Lossless optimization with custom option
@@ -122,14 +130,15 @@ module.exports = merge(common, {
             {
               plugins: [
                 {
-                  removeViewBox: false,
-                },
-              ],
-            },
-          ],
-        ],
-      },
+                  removeViewBox: false
+                }
+              ]
+            }
+          ]
+        ]
+      }
     }),
+    new ImageminWebpWebpackPlugin()
   ],
   optimization: {
     minimizer: [
@@ -137,10 +146,10 @@ module.exports = merge(common, {
       new TerserJSPlugin({
         cache: true,
         parallel: true,
-        sourceMap: true,
+        sourceMap: true
       }),
       // Minify CSS; default applies to all .css files
-      new OptimizeCSSAssetsPlugin({}),
+      new OptimizeCSSAssetsPlugin({})
     ],
     splitChunks: {
       chunks: "all",
@@ -151,13 +160,11 @@ module.exports = merge(common, {
           test: /[\\/]node_modules[\\/]/,
           reuseExistingChunk: true,
           name(module) {
-            const packageName = module.context.match(
-              /[\\/]node_modules[\\/](.*?)([\\/]|$)/
-            )[1];
+            const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];
             return `vendor/npm.${packageName.replace("@", "")}`;
-          },
-        },
-      },
-    },
-  },
+          }
+        }
+      }
+    }
+  }
 });
