@@ -179,19 +179,19 @@ let posts = [
   </footer>
 </article>
 </div>
-</div>`
+</div>`,
 ];
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   const leftArrow = document.getElementById("left-arrow");
   const container = document.getElementById("post-section");
   const rightArrow = document.getElementById("right-arrow");
   container.innerHTML += posts[0];
   container.innerHTML += posts[1];
-  leftArrow.addEventListener("click", function() {
+  leftArrow.addEventListener("click", function () {
     if (leftArrow.classList.contains("disable")) return;
     paginate(leftArrow, rightArrow, false);
   });
-  rightArrow.addEventListener("click", function() {
+  rightArrow.addEventListener("click", function () {
     if (rightArrow.classList.contains("disable")) return;
     paginate(leftArrow, rightArrow, true);
   });
@@ -205,7 +205,7 @@ function ajaxScrape() {
     url: "../../php/scrape.php",
     dataType: "json",
     type: "POST",
-    success: function(response) {
+    success: function (response) {
       if (response.error) {
         console.log("Invalid URL");
       } else {
@@ -219,12 +219,13 @@ function ajaxScrape() {
         }
       }
     },
-    error: function() {
+    error: function () {
       $(".rank").html("Invalid URL or Some Error occured!");
+      console.log("Scrape function failed");
     },
-    complete: function() {
+    complete: function () {
       console.log("Done with AJAX function");
-    }
+    },
   });
 }
 
@@ -249,7 +250,7 @@ function paginate(left, right, isForward) {
   const indexes = [curPage * 2, curPage * 2 + 1];
   console.log({ indexes });
   let currentPosts = document.querySelectorAll(".post-row");
-  currentPosts.forEach(function(post) {
+  currentPosts.forEach(function (post) {
     post.remove();
   });
   const container = document.getElementById("post-section");

@@ -92,7 +92,7 @@ var youtubeLinks = {
   magnolia:
     '<iframe width="560" height="315" src="https://www.youtube.com/embed/oCveByMXd_0" frameborder="0" allowfullscreen></iframe>',
   summer_bummer:
-    '<iframe width="560" height="315" src="https://www.youtube.com/embed/AcVQJJoD45w" frameborder="0" allowfullscreen></iframe>'
+    '<iframe width="560" height="315" src="https://www.youtube.com/embed/AcVQJJoD45w" frameborder="0" allowfullscreen></iframe>',
 };
 
 function addYoutubeVideo(currentHeading) {
@@ -104,7 +104,7 @@ function addYoutubeVideo(currentHeading) {
 }
 
 function removeAllSpin(currentElement) {
-  $.each($(".logo"), function() {
+  $.each($(".logo"), function () {
     if (!$(currentElement).is(this)) {
       $(this).removeClass("spin-class");
     }
@@ -112,14 +112,14 @@ function removeAllSpin(currentElement) {
 }
 
 function removeAllVideos() {
-  $.each($(".contents-video"), function() {
+  $.each($(".contents-video"), function () {
     $("iframe").remove();
   });
 }
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   let logoClass = $(".panel-title");
-  logoClass.on("click", function() {
+  logoClass.on("click", function () {
     var bunny = $(this).find("img");
     removeAllVideos();
     addYoutubeVideo(this);

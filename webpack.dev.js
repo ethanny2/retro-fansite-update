@@ -1,5 +1,5 @@
 /* eslint-disable */
-const merge = require("webpack-merge");
+const {merge} = require("webpack-merge");
 const common = require("./webpack.common.js");
 const path = require("path");
 const webpack = require("webpack");
@@ -7,9 +7,14 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = merge(common, {
   mode: "development",
-  node: {
-    fs: "empty"
-  },
+  // node: {
+  //   fs: "empty"
+  // },
+  resolve: {
+    fallback: {
+      fs: false
+    }
+  }, 
   devtool: "inline-source-map",
   output: {
     filename: "js/[name].bundle.js",
@@ -86,10 +91,10 @@ module.exports = merge(common, {
     watchContentBase: true
   },
   plugins: [
-    new MiniCssExtractPlugin({
-      filename: "css/style.css",
-      chunkFilename: "css/style.[id].css"
-    })
+    // new MiniCssExtractPlugin({
+    //   filename: "css/style.css",
+    //   chunkFilename: "css/style.[id].css"
+    // })
   ],
   optimization: {
     splitChunks: {

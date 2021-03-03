@@ -15,8 +15,13 @@ const webpack = require("webpack");
 
 module.exports = {
   target: "web",
-  node: {
-    fs: "empty"
+  // node: {
+  //   fs: "empty"
+  // },
+  resolve: {
+    fallback: {
+      fs: false
+    }
   },
   stats: {
     chunks: true,
@@ -71,7 +76,7 @@ module.exports = {
             options: {
               // Path all assets AFTER build process
               publicPath: "../",
-              hmr: true
+              // hmr: true
             }
           },
           // Translates CSS into CommonJS
@@ -153,16 +158,22 @@ module.exports = {
       defaultAttribute: "defer"
     }),
     //Copy the entire directory of netlify functions to build folder
-    new CopyPlugin([
-      {
-        from: path.resolve(__dirname, "./functions"),
-        to: "./functions/"
-      },
-    ])
+    new CopyPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, "./functions"),
+          to: "./functions/"
+        },
+      ],
+    }),
+    new MiniCssExtractPlugin({
+      filename: '[name].css',
+      chunkFilename: '[id].css'
+    })
   ],
   optimization: {
     runtimeChunk: "single",
-    moduleIds: "hashed",
+    moduleIds: "deterministic",
     splitChunks: {
       cacheGroups: {
         // Extracts all .css files into a single css file

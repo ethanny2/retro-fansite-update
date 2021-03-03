@@ -1,5 +1,5 @@
 /* I could just remove jQuery but its a project dep*/
-$(".design_container").on("click", function() {
+$(".design_container").on("click", function () {
   var target = $(this).children(".front");
   var back = $(this).children(".back");
   if (target.is(":visible")) {
