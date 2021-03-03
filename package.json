@@ -45,6 +45,7 @@
     "gltf-pipeline": "^2.1.4",
     "html-loader": "^1.1.1",
     "html-webpack-plugin": "^4.5.2",
+    "image-minimizer-webpack-plugin": "^2.2.0",
     "image-webpack-loader": "^6.0.0",
     "imagemin": "^7.0.1",
     "imagemin-gifsicle": "^7.0.0",
