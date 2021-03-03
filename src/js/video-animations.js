@@ -1,14 +1,20 @@
 /* JQ/JS functions to make plaboy bunny spin on open and close and animations for transitioning the content*/
 
 var youtubeLinks = {
+  metamorphosis:
+    '<iframe width="560" height="315" src="https://www.youtube.com/embed/wGBsIelFe-E?autoplay=0&controls=2&autohide=0" frameborder="0" allowfullscreen></iframe>',
+  meh:
+    '<iframe width="560" height="315"  src="https://www.youtube.com/embed/nMDOSLEVdBw?autoplay=0&controls=2&autohide=0" frameborder="0" allowfullscreen></iframe>',
+  flex_up:
+    '<iframe width="560" height="315"  src="https://www.youtube.com/embed/kGV5V_VIVc8?autoplay=0&controls=2&autohide=0" frameborder="0" allowfullscreen></iframe>',
   what:
-    '	<iframe width="1000" height="1000px" src="https://www.youtube.com/embed/wcJVXg7gg4w?autoplay=0&controls=2&autohide=0" frameborder="0" allowfullscreen></iframe>',
+    '	<iframe width="560" height="315"  src="https://www.youtube.com/embed/wcJVXg7gg4w?autoplay=0&controls=2&autohide=0" frameborder="0" allowfullscreen></iframe>',
   broke_boi:
     '<iframe width="560" height="315" src="https://www.youtube.com/embed/3XOETXVL424" frameborder="0" allowfullscreen></iframe>',
   fetti:
     '<iframe width="560" height="315" src="https://www.youtube.com/embed/A5IvyeAeEOM" frameborder="0" allowfullscreen></iframe>',
   sneak_dissin:
-    '<iframe width="560" height="315" src="https://www.youtube.com/embed/OYwGimL6Buo" frameborder="0" allowfullscreen></iframe>',
+    '<iframe width="560" height="315" src="https://www.youtube.com/embed/tCSHmtA11LA" frameborder="0" allowfullscreen></iframe>',
   pray_4_me:
     '<iframe width="560" height="315" src="https://www.youtube.com/embed/RGMr3tMwakI" frameborder="0" allowfullscreen></iframe>',
   talk_icytwat:
@@ -24,7 +30,7 @@ var youtubeLinks = {
   ghost:
     '<iframe width="560" height="315" src="https://www.youtube.com/embed/Unqu9hUYKF8" frameborder="0" allowfullscreen></iframe>',
   "3_chains":
-    '<iframe width="560" height="315" src="https://www.youtube.com/embed/zF4ZC3d8SkA" frameborder="0" allowfullscreen></iframe>',
+    '<iframe width="560" height="315" src="https://www.youtube.com/embed/9tYivkA9Xy8" frameborder="0" allowfullscreen></iframe>',
   talk:
     '	<iframe width="560" height="315" src="https://www.youtube.com/embed/VdtxO0lFxnE" frameborder="0" allowfullscreen></iframe>',
   broke_boi_live:
