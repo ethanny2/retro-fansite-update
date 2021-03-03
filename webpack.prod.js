@@ -8,6 +8,7 @@ const CompressionPlugin = require("compression-webpack-plugin");
 const glob = require("glob");
 const PurgecssPlugin = require("purgecss-webpack-plugin");
 const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
+const ImageminWebpWebpackPlugin = require("imagemin-webp-webpack-plugin");
 
 module.exports = merge(common, {
   mode: "production",
@@ -107,6 +108,7 @@ module.exports = merge(common, {
     new PurgecssPlugin({
       paths: glob.sync("src/**/*", { nodir: true })
     }),
+    new ImageminWebpWebpackPlugin(),
     new ImageMinimizerPlugin({
       minimizerOptions: {
         // Lossless optimization with custom option
