@@ -1,6 +1,6 @@
-const merge = require("webpack-merge");
+const { merge } = require("webpack-merge");
 const common = require("./webpack.common.js");
-const TerserJSPlugin = require("terser-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const path = require("path");
@@ -12,11 +12,14 @@ const ImageminWebpWebpackPlugin = require("imagemin-webp-webpack-plugin");
 
 module.exports = merge(common, {
   mode: "production",
-  devtool: "cheap-module-eval-source-map",
+  // devtool: "eval",
   resolve: {
     fallback: {
       fs: false
     }
+  },
+  stats: {
+    children: true
   },
   // node: {
   //   fs: "empty",
@@ -24,71 +27,65 @@ module.exports = merge(common, {
   output: {
     // Contenthash substitution used for cache bursting
     filename: "js/[name].[contenthash].bundle.js",
-    path: path.resolve(__dirname, "dist")
+    path: path.resolve(__dirname, "dist"),
+    assetModuleFilename: "images/[name][hash][ext]"
   },
   module: {
     rules: [
       {
-        test: /\.(png|svg|jpe?g|gif|ico)$/i,
-        use: [
-          {
-            loader: "file-loader",
-            options: {
-              outputPath: "images/",
-              name: "[name].[ext]",
-              // name: "[name].[contenthash].[ext]",
-              esModule: false
-            }
-          }
-        ]
-      },
-      // Loads all audio files;
-      {
-        test: /\.(ogg|wma|mp3|wav|mpe?g)$/i,
-        use: {
-          loader: "file-loader",
-          options: {
-            outputPath: "audio/",
-            name: "[name].[contenthash].[ext]",
-            esModule: false
-          }
-        }
-      },
-      // Loads all font files
-      {
-        test: /\.(woff|woff2|eot|ttf|otf)$/i,
-        use: {
-          loader: "file-loader",
-          options: {
-            outputPath: "fonts/",
-            name: "[name].[contenthash].[ext]",
-            esModule: false
-          }
-        }
-      },
-      // Loads all JSON and text files; add more based on your needs
+        test: /\.(jpg|JPG|jpeg|png|gif|mp4|svg|ttf|webp|woff2|woff|eot)$/i,
+        type: "asset/resource"
+      }
       // {
-      //   test: /\.(txt|JSON)$/i,
+      //   test: /\.(jpg|JPG|jpeg|png|gif|mp3|svg|ttf|webp|woff2|woff|eot)$/i,
+      //   use: [
+      //     {
+      //       loader: "file-loader",
+      //       options: {
+      //         outputPath: "images/",
+      //         name: "[name].[ext]",
+      //         // name: "[name].[contenthash].[ext]",
+      //         esModule: false
+      //       }
+      //     }
+      //   ]
+      // }
+      // Loads all audio files;
+      // {
+      //   test: /\.(ogg|wma|mp3|wav|mpe?g)$/i,
       //   use: {
       //     loader: "file-loader",
       //     options: {
-      //       outputPath: "data/",
-      //       name: "[name].[ext]",
+      //       outputPath: "audio/",
+      //       name: "[name].[contenthash].[ext]",
       //       esModule: false
       //     }
       //   }
       // },
-      // loads all html files
-      {
-        test: /\.(html)$/,
-        use: {
-          loader: "html-loader",
-          options: {
-            minimize: true,
-            root: path.resolve(__dirname, "dist")
-          }
-        }
-      }
+      // Loads all font files
+      // {
+      //   test: /\.(woff|woff2|eot|ttf|otf)$/i,
+      //   use: {
+      //     loader: "file-loader",
+      //     options: {
+      //       outputPath: "fonts/",
+      //       name: "[name].[contenthash].[ext]",
+      //       esModule: false
+      //     }
+      //   }
+      // },
+      // loads all html files and adds images in them to dependecy graph
+      // {
+      //   test: /\.(html)$/,
+      //   use: {
+      //     loader: "html-loader",
+      //     options: {
+      //       minimize: true,
+      //       esModule: false
+      //       // root: path.resolve(__dirname, "dist")
+      //     }
+      //   }
+      // }
     ]
   },
   plugins: [
@@ -96,10 +93,10 @@ module.exports = merge(common, {
     //   filename: "css/style.[contenthash].css",
     //   chunkFilename: "css/style.[contenthash].css"
     // }),
-    new MiniCssExtractPlugin({
-      filename: "[name].[contenthash].css",
-      chunkFilename: "[id].css"
-    }),
+    // new MiniCssExtractPlugin({
+    //   filename: "[name].[contenthash].css"
+    //   // chunkFilename: "[id].css"
+    // }),
     // new ImageminPlugin({
     //   optipng: {
     //     optimizationLevel: 6
@@ -124,7 +121,7 @@ module.exports = merge(common, {
         plugins: [
           ["gifsicle", { interlaced: true }],
           ["jpegtran", { progressive: true }],
-          ["optipng", { optimizationLevel: 5 }],
+          ["optipng", { optimizationLevel: 1 }],
           [
             "svgo",
             {
@@ -138,19 +135,29 @@ module.exports = merge(common, {
         ]
       }
     }),
-    new ImageminWebpWebpackPlugin()
+    new OptimizeCSSAssetsPlugin({
+      assetNameRegExp: /\.optimize\.css$/g,
+      cssProcessor: require("cssnano"),
+      cssProcessorPluginOptions: {
+        preset: ["default", { discardComments: { removeAll: true } }]
+      },
+      canPrint: true
+    })
+    // new ImageminWebpWebpackPlugin()
   ],
   optimization: {
-    minimizer: [
-      // Minify JS; by default applies to all .js files;
-      new TerserJSPlugin({
-        cache: true,
-        parallel: true,
-        sourceMap: true
-      }),
-      // Minify CSS; default applies to all .css files
-      new OptimizeCSSAssetsPlugin({})
-    ],
+    minimize: true,
+    minimizer: [new TerserPlugin()],
+    // minimizer: [
+    //   // Minify JS; by default applies to all .js files;
+    //   new TerserJSPlugin({
+    //     cache: true,
+    //     parallel: true,
+    //     sourceMap: true
+    //   }),
+    //   // Minify CSS; default applies to all .css files
+    //   new OptimizeCSSAssetsPlugin({})
+    // ],
     splitChunks: {
       chunks: "all",
       maxInitialRequests: Infinity,

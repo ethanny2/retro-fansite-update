@@ -1,5 +1,15 @@
 /*Scraping with php and ajax??? */
 let curPage = 0;
+/*
+  Since the images are dynamically inserted they are not added to the webpack
+  dependency graph so I just include them here to make sure they are in the final build
+*/
+
+import image1 from "../static/images/post1-wlr.webp";
+import image2 from "../static/images/post2-interview.jpg";
+import image3 from "../static/images/post3-metamor.png";
+import image4 from "../static/images/post4-merch.png";
+
 let posts = [
   `<div class="row post-row">
 <div class="col-xs-12">
@@ -17,11 +27,11 @@ let posts = [
     <figure class="right">
       <a rel="noopener" href="https://www.interviewmagazine.com/music/playboi-carti-takes-kid-cudi-behind-the-method-to-his-madness">
         <img
-        src="../images/post2-interview.jpg"
+        src="${image2}"
         alt="Playboi Carti Interview photo shoot"
       />
       </a>
-      <figcaption>
+      <figcaption></figcaption>
         Interview magazine's photoshoot
       </figcaption>
     </figure>
@@ -68,7 +78,7 @@ let posts = [
     <figure class="middle" >
       <a rel="noopener" href="https://shop.playboicarti.com/?utm_campaign=nav&utm_medium=referral&utm_source=playboicarti.com">
         <img
-        src="../images/post4-merch.png"
+        src="${image4}"
         alt="Sample merch of sweaters and shirts"
       />
       </a>
@@ -108,7 +118,7 @@ let posts = [
   <figure class="middle" >
     <a rel="noopener" href="https://www.youtube.com/watch?v=wGBsIelFe-E">
       <img
-      src="../images/post3-metamor.png"
+      src="${image3}"
       alt="Scene from music video with Playboi Carti and Kid Cudi riding a tracktor"
     />
     </a>
@@ -146,7 +156,7 @@ let posts = [
   <figure class="left">
     <a href="https://smarturl.it/WLRcarti" rel="noopener">
       <img
-        src="../images/post1-wlr.webp"
+        src="${image1}"
         alt="Whole lotta' red album cover art"
       />
     </a>
