@@ -5,10 +5,10 @@ let curPage = 0;
   dependency graph so I just include them here to make sure they are in the final build
 */
 
-import image1 from "../static/images/post1-wlr.webp";
-import image2 from "../static/images/post2-interview.jpg";
-import image3 from "../static/images/post3-metamor.png";
-import image4 from "../static/images/post4-merch.png";
+import image1 from "../static/images/posts/post1-wlr.webp";
+import image2 from "../static/images/posts/post2-interview.jpg";
+import image3 from "../static/images/posts/post3-metamor.png";
+import image4 from "../static/images/posts/post4-merch.png";
 
 let posts = [
   `<div class="row post-row">

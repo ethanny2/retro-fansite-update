@@ -92,7 +92,7 @@ var youtubeLinks = {
   magnolia:
     '<iframe width="560" height="315" src="https://www.youtube.com/embed/oCveByMXd_0" frameborder="0" allowfullscreen></iframe>',
   summer_bummer:
-    '<iframe width="560" height="315" src="https://www.youtube.com/embed/AcVQJJoD45w" frameborder="0" allowfullscreen></iframe>',
+    '<iframe width="560" height="315" src="https://www.youtube.com/embed/AcVQJJoD45w" frameborder="0" allowfullscreen></iframe>'
 };
 
 function addYoutubeVideo(currentHeading) {

@@ -115,17 +115,17 @@ module.exports = {
           }
         ]
       },
-      {
-        test: /\.(html)$/,
-        use: {
-          loader: "html-loader",
-          options: {
-            minimize: true,
-            esModule: false
-            // root: path.resolve(__dirname, "dist")
-          }
-        }
-      }
+      // {
+      //   test: /\.(html)$/,
+      //   use: {
+      //     loader: "html-loader",
+      //     options: {
+      //       minimize: true,
+      //       esModule: false
+      //       // root: path.resolve(__dirname, "dist")
+      //     }
+      //   }
+      // }
     ]
   },
   plugins: [

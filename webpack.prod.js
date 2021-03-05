@@ -8,11 +8,9 @@ const CompressionPlugin = require("compression-webpack-plugin");
 const glob = require("glob");
 const PurgecssPlugin = require("purgecss-webpack-plugin");
 const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
-const ImageminWebpWebpackPlugin = require("imagemin-webp-webpack-plugin");
 
 module.exports = merge(common, {
   mode: "production",
-  // devtool: "eval",
   resolve: {
     fallback: {
       fs: false
@@ -21,9 +19,6 @@ module.exports = merge(common, {
   stats: {
     children: true
   },
-  // node: {
-  //   fs: "empty",
-  // },
   output: {
     // Contenthash substitution used for cache bursting
     filename: "js/[name].[contenthash].bundle.js",
@@ -35,33 +30,7 @@ module.exports = merge(common, {
       {
         test: /\.(jpg|JPG|jpeg|png|gif|mp4|svg|ttf|webp|woff2|woff|eot)$/i,
         type: "asset/resource"
-      }
-      // {
-      //   test: /\.(jpg|JPG|jpeg|png|gif|mp3|svg|ttf|webp|woff2|woff|eot)$/i,
-      //   use: [
-      //     {
-      //       loader: "file-loader",
-      //       options: {
-      //         outputPath: "images/",
-      //         name: "[name].[ext]",
-      //         // name: "[name].[contenthash].[ext]",
-      //         esModule: false
-      //       }
-      //     }
-      //   ]
-      // }
-      // Loads all audio files;
-      // {
-      //   test: /\.(ogg|wma|mp3|wav|mpe?g)$/i,
-      //   use: {
-      //     loader: "file-loader",
-      //     options: {
-      //       outputPath: "audio/",
-      //       name: "[name].[contenthash].[ext]",
-      //       esModule: false
-      //     }
-      //   }
-      // },
+      },
       // Loads all font files
       // {
       //   test: /\.(woff|woff2|eot|ttf|otf)$/i,
@@ -73,19 +42,18 @@ module.exports = merge(common, {
       //       esModule: false
       //     }
       //   }
-      // },
-      // loads all html files and adds images in them to dependecy graph
-      // {
-      //   test: /\.(html)$/,
-      //   use: {
-      //     loader: "html-loader",
-      //     options: {
-      //       minimize: true,
-      //       esModule: false
-      //       // root: path.resolve(__dirname, "dist")
-      //     }
-      //   }
       // }
+      {
+        test: /\.(html)$/,
+        use: {
+          loader: "html-loader",
+          options: {
+            minimize: true,
+            esModule: false
+            // root: path.resolve(__dirname, "dist")
+          }
+        }
+      }
     ]
   },
   plugins: [
@@ -97,44 +65,33 @@ module.exports = merge(common, {
     //   filename: "[name].[contenthash].css"
     //   // chunkFilename: "[id].css"
     // }),
-    // new ImageminPlugin({
-    //   optipng: {
-    //     optimizationLevel: 6
-    //   },
-    //   plugins: [
-    //     imageminMozjpeg({
-    //       quality: 100,
-    //       progressive: true
-    //     })
-    //   ]
-    // }),
     new CompressionPlugin({
       test: /\.(html|css|js)(\?.*)?$/i
     }),
     new PurgecssPlugin({
-      paths: glob.sync("src/**/*", { nodir: true })
+      paths: glob.sync(`${path.join(__dirname, "src")}/**/*`, { nodir: true })
     }),
-    new ImageMinimizerPlugin({
-      minimizerOptions: {
-        // Lossless optimization with custom option
-        // Feel free to experiment with options for better result for you
-        plugins: [
-          ["gifsicle", { interlaced: true }],
-          ["jpegtran", { progressive: true }],
-          ["optipng", { optimizationLevel: 1 }],
-          [
-            "svgo",
-            {
-              plugins: [
-                {
-                  removeViewBox: false
-                }
-              ]
-            }
-          ]
-        ]
-      }
-    }),
+    // new ImageMinimizerPlugin({
+    //   minimizerOptions: {
+    //     // Lossless optimization with custom option
+    //     // Feel free to experiment with options for better result for you
+    //     plugins: [
+    //       ["gifsicle", { interlaced: true }],
+    //       ["jpegtran", { progressive: true }],
+    //       ["optipng", { optimizationLevel: 2 }]
+    //       // [
+    //       //   "svgo",
+    //       //   {
+    //       //     plugins: [
+    //       //       {
+    //       //         removeViewBox: false
+    //       //       }
+    //       //     ]
+    //       //   }
+    //       // ]
+    //     ]
+    //   }
+    // })
     new OptimizeCSSAssetsPlugin({
       assetNameRegExp: /\.optimize\.css$/g,
       cssProcessor: require("cssnano"),
@@ -143,21 +100,10 @@ module.exports = merge(common, {
       },
       canPrint: true
     })
-    // new ImageminWebpWebpackPlugin()
   ],
   optimization: {
     minimize: true,
     minimizer: [new TerserPlugin()],
-    // minimizer: [
-    //   // Minify JS; by default applies to all .js files;
-    //   new TerserJSPlugin({
-    //     cache: true,
-    //     parallel: true,
-    //     sourceMap: true
-    //   }),
-    //   // Minify CSS; default applies to all .css files
-    //   new OptimizeCSSAssetsPlugin({})
-    // ],
     splitChunks: {
       chunks: "all",
       maxInitialRequests: Infinity,

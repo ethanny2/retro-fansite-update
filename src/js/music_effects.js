@@ -237,7 +237,7 @@ var soundCloudLinks = {
   in_my_car:
     '<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/538843134&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/user-672349913" title="DJ OZONE" target="_blank" style="color: #cccccc; text-decoration: none;">DJ OZONE</a> · <a href="https://soundcloud.com/user-672349913/playboi-carti-in-my-car" title="Playboi carti - In My Car" target="_blank" style="color: #cccccc; text-decoration: none;">Playboi carti - In My Car</a></div>',
   wwtw:
-    '<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/346541562&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/user-449126032" title="HEEEAAATSEEEAAAKKKERRSS" target="_blank" style="color: #cccccc; text-decoration: none;">HEEEAAATSEEEAAAKKKERRSS</a> · <a href="https://soundcloud.com/user-449126032/yung-gleesh-wwtw-feat-playboi-carti-lil-yachty-wshh-exclusive-official-audio" title="Yung Gleesh &quot;WWTW&quot; Feat. Playboi Carti &amp; Lil Yachty (WSHH Exclusive - Official Audio)" target="_blank" style="color: #cccccc; text-decoration: none;">Yung Gleesh &quot;WWTW&quot; Feat. Playboi Carti &amp; Lil Yachty (WSHH Exclusive - Official Audio)</a></div>',
+    '<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/346541562&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/user-449126032" title="HEEEAAATSEEEAAAKKKERRSS" target="_blank" style="color: #cccccc; text-decoration: none;">HEEEAAATSEEEAAAKKKERRSS</a> · <a href="https://soundcloud.com/user-449126032/yung-gleesh-wwtw-feat-playboi-carti-lil-yachty-wshh-exclusive-official-audio" title="Yung Gleesh &quot;WWTW&quot; Feat. Playboi Carti &amp; Lil Yachty (WSHH Exclusive - Official Audio)" target="_blank" style="color: #cccccc; text-decoration: none;">Yung Gleesh &quot;WWTW&quot; Feat. Playboi Carti &amp; Lil Yachty (WSHH Exclusive - Official Audio)</a></div>'
 };
 
 let grid;
@@ -266,7 +266,7 @@ document.addEventListener("DOMContentLoaded", function () {
   grid = new Masonry("#grid", {
     columnWidth: ".grid-sizer",
     itemSelector: ".grid-item",
-    percentPosition: true,
+    percentPosition: true
   });
   //adjustCoverHeight();
   $("#grid").on("click", ".grid-item-content", function () {
@@ -287,13 +287,10 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 var docElem = document.documentElement;
-var transitionProp =
-  typeof docElem.style.transition == "string"
-    ? "transition"
-    : "WebkitTransition";
+var transitionProp = typeof docElem.style.transition == "string" ? "transition" : "WebkitTransition";
 var transitionEndEvent = {
   WebkitTransition: "webkitTransitionEnd",
-  transition: "transitionend",
+  transition: "transitionend"
 }[transitionProp];
 
 function setItemContentPixelSize(itemContent) {
@@ -337,6 +334,6 @@ imagesLoaded("#grid", function () {
   new Masonry("#grid", {
     columnWidth: ".grid-sizer",
     itemSelector: ".grid-item",
-    percentPosition: true,
+    percentPosition: true
   });
 });

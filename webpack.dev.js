@@ -22,43 +22,8 @@ module.exports = merge(common, {
   },
   module: {
     rules: [
-      // Loads all image files; no minfication
-      {
-        test: /\.(png|svg|jpe?g|gif|ico)$/i,
-        use: {
-          loader: "file-loader",
-          options: {
-            outputPath: "images/",
-            name: "[name].[ext]",
-            esModule: false
-          }
-        }
-      },
-      // Loads all audio files
-      {
-        test: /\.(ogg|wma|mp3|wav|mpe?g)$/i,
-        use: {
-          loader: "file-loader",
-          options: {
-            outputPath: "audio/",
-            // name: "[name].[contenthash].[ext]"
-            name: "[name].[ext]",
-            esModule: false
-          }
-        }
-      },
-      // Loads all font files
-      {
-        test: /\.(woff|woff2|eot|ttf|otf)$/i,
-        use: {
-          loader: "file-loader",
-          options: {
-            outputPath: "fonts/",
-            name: "[name].[ext]",
-            esModule: false
-          }
-        }
-      },
+     
+    
       // // Loads all JSON and text files; add more based on your needs
       // {
       //   test: /\.(txt|json)$/i,
