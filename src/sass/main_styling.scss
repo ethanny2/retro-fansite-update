@@ -199,9 +199,7 @@ html {
   box-sizing: border-box;
 }
 
-#top_nav {
-  color: blue;
-}
+
 
 .navbar-nav {
   font-size: 1.5em;
@@ -274,6 +272,7 @@ html {
 .grid-item {
   float: left;
   height: 107px;
+  transition: transform 0.3s ease-in-out;
   -webkit-transition: transform 0.3s ease-in-out;
   -moz-transition: transform 0.3s ease-in-out;
   -o-transition: transform 0.3s ease-in-out;
@@ -371,6 +370,7 @@ iframe {
 }
 
 .grow {
+   transition: transform 0.3s ease-in-out;
   -webkit-transition: transform 0.3s ease-in-out;
   -moz-transition: transform 0.3s ease-in-out;
   -o-transition: transform 0.3s ease-in-out;
@@ -630,81 +630,15 @@ iframe {
   margin: 0;
 }
 .spin-class {
-  -webkit-animation: spin 1s linear;
+  transition: transform 1s ease;
+  transform: rotate(-360deg);
+}
+.collapse{
+  transition: all 0.5s ease;
 }
 
-@-moz-keyframes spin {
-  0% {
-    -moz-transform: rotate(0deg);
-  }
-  100% {
-    -moz-transform: rotate(-360deg);
-  }
-}
 
-@-webkit-keyframes spin {
-  0% {
-    -webkit-transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(-360deg);
-  }
-}
 
-// -webkit-animation: pulse 15s infinite;
-// -moz-animation: pulse 15s infinite;
-// animation: pulse 15s infinite;
-@-moz-keyframes pulse {
-  0% {
-    background-color: #45ceef;
-  }
-  25% {
-    background-color: #fff5a5;
-  }
-  50% {
-    background-color: #ffd4da;
-  }
-  75% {
-    background-color: #99d2e4;
-  }
-  100% {
-    background-color: #d8cab4;
-  }
-}
-@-webkit-keyframes pulse {
-  0% {
-    background-color: #45ceef;
-  }
-  25% {
-    background-color: #fff5a5;
-  }
-  50% {
-    background-color: #ffd4da;
-  }
-  75% {
-    background-color: #99d2e4;
-  }
-  100% {
-    background-color: #d8cab4;
-  }
-}
-@keyframes pulse {
-  0% {
-    background-color: #45ceef;
-  }
-  25% {
-    background-color: #fff5a5;
-  }
-  50% {
-    background-color: #ffd4da;
-  }
-  75% {
-    background-color: #99d2e4;
-  }
-  100% {
-    background-color: #d8cab4;
-  }
-}
 
 .contents-title {
   text-align: center;
@@ -1106,146 +1040,6 @@ label {
   height: 40%;
 }
 
-.button {
-  border-radius: 25px;
-  padding: 5px 10px 5px 10px;
-  margin-top: 3%;
-  margin-bottom: 3%;
-  color: black;
-}
-#response {
-  display: inline;
-
-  margin-top: 10%;
-  color: white;
-  font-size: 1.4em;
-}
-
-#email_entry {
-  color: white;
-}
-#email_entry:after {
-  margin-top: 2%;
-  content: " ";
-  display: block;
-  border: 1px solid white;
-}
-
-label {
-  font-size: 25px;
-  margin: 10px;
-  padding: 0 10px;
-}
-.active {
-  top: -25px;
-  font-size: 20px;
-}
-
-input[type="text"] {
-  width: 96%;
-  padding: 10px;
-  font-size: 1.2em;
-  background-color: black;
-  color: white;
-}
-
-input[type="text"]:focus {
-  outline: none;
-}
-
-#message_container ul {
-  list-style: none;
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-#email_header {
-  color: white;
-  font-size: 1.4 em;
-}
-
-#message_container ul li {
-  color: black;
-  display: block;
-  position: relative;
-  float: left;
-  width: 100%;
-  height: 100px;
-  border-bottom: 3px solid #111111;
-}
-ul li input[type="radio"] {
-  position: absolute;
-  visibility: hidden;
-}
-
-ul li label {
-  position: absolute;
-  display: block;
-  /*  border: solid 5px black;
-*/
-  font-weight: 300;
-  font-size: 1.4em;
-  padding: 20px 0px 40px 0px;
-  /*margin-right:25%;
-  margin-top: 6.5%;*/
-  top: 7%;
-  left: 8%;
-  height: 20px;
-  z-index: 9;
-  cursor: pointer;
-  -webkit-transition: all 0.25s linear;
-}
-#sub_box label {
-  margin-right: 40%;
-}
-
-ul li:hover label {
-  color: #b2280f;
-}
-ul li .check {
-  display: block;
-  position: absolute;
-  border: 5px solid white;
-  border-radius: 100%;
-  height: 25px;
-  width: 25px;
-  top: 45%;
-  left: 0%;
-  z-index: 5;
-  transition: border 0.25s linear;
-  -webkit-transition: border 0.25s linear;
-}
-
-ul li:hover .check {
-  border: 5px solid white;
-}
-ul li .check::before {
-  display: block;
-  position: absolute;
-  content: "";
-  border-radius: 100%;
-  height: 9px;
-  width: 9px;
-  top: 20%;
-  left: 19%;
-  margin: auto;
-  transition: background 0.25s linear;
-  -webkit-transition: background 0.25s linear;
-}
-input[type="radio"]:checked ~ .check {
-  border: 5px solid #0dff92;
-}
-
-input[type="radio"]:checked ~ .check::before {
-  background: #0dff92;
-}
-
-input[type="radio"]:checked ~ label {
-  color: #0dff92;
-}
-
 .back {
   display: none;
 }
@@ -1437,30 +1231,7 @@ input[type="radio"]:checked ~ label {
   #carti_title {
     font-size: 4.6em;
   }
-  #runner_container img {
-    height: 170px;
-  }
-  #demon_container img {
-    height: 170px;
-  }
-  ul li label {
-    top: 13%;
-  }
-  ul li .check {
-    top: 51%;
-  }
-  #email_header {
-    font-size: 1.5em;
-  }
-  .button {
-    font-size: 1em;
-  }
-  .hovereffect p {
-    font-size: 160%;
-  }
-  .hovereffect a {
-    font-size: 160%;
-  }
+
 }
 @media (min-width: 450px) {
   .navbar-brand p {
@@ -1506,24 +1277,7 @@ input[type="radio"]:checked ~ label {
   #decoration_left img {
     height: 175px;
   }
-  #demon_container {
-    margin-top: 28.1%;
-  }
-  ul li label {
-    margin-right: 45%;
-    font-size: 1.7em;
-    bottom: 4px;
-  }
-  #sub_box label {
-    margin-right: 54%;
-  }
-  ul li .check {
-    top: 55%;
-  }
-  /*Dot in middle*/
-  ul li .check::before {
-    left: 20%;
-  }
+
 }
 
 /*Change if viewport is 576px or wider */
@@ -1592,34 +1346,7 @@ input[type="radio"]:checked ~ label {
     height: auto;
     text-align: center;
   }
-  #demon_container {
-    margin-top: 10%;
-  }
-  #runner_container {
-    margin-top: 10%;
-  }
-  ul li label {
-    top: 3%;
-    left: 8%;
-  }
-  #sub_box label {
-    margin-right: 55%;
-  }
-  ul li .check {
-    top: 50%;
-    height: 30px;
-    width: 30px;
-  }
-  /*Dot in middle*/
-  ul li .check::before {
-    top: 15%;
-    left: 17%;
-    height: 14px;
-    width: 14px;
-  }
-  ul li label {
-    font-size: 2.2em;
-  }
+  
   .design_container {
     width: 100%;
     height: 100%;
@@ -1639,20 +1366,10 @@ input[type="radio"]:checked ~ label {
   .carti_img {
     width: 90%;
   }
-  .twopics img {
-    float: left;
-    height: 300px;
-    width: 50%;
-  }
-  .hovereffect p {
-    font-size: 240%;
-  }
-  .hovereffect a {
-    font-size: 100%;
-  }
+  
+
 }
 
-/*For blood */
 @media (min-width: 689px) {
   .design_container .coming_soon {
     height: 100%;
@@ -1661,9 +1378,7 @@ input[type="radio"]:checked ~ label {
   .title {
     font-size: 4rem;
   }
-  #blood {
-    top: 340px;
-  }
+
   .grid-item {
     height: 229.666px;
   }
@@ -1682,34 +1397,7 @@ input[type="radio"]:checked ~ label {
   #decoration_left img {
     width: 100%;
   }
-  ul li label {
-    margin-right: 55%;
-    bottom: 30px;
-  }
-  #sub_box label {
-    margin-right: 62%;
-  }
-  ul li .check {
-    top: 50%;
-    height: 30px;
-    width: 30px;
-  }
-  /*Dot in middle*/
-  ul li .check::before {
-    top: 15%;
-    left: 17%;
-    height: 14px;
-    width: 14px;
-  }
-  ul li label {
-    font-size: 2.2em;
-  }
-  .hovereffect p {
-    font-size: 300%;
-  }
-  .hovereffect a {
-    font-size: 140%;
-  }
+ 
 }
 
 /* THIS IS AN IPAD*/
@@ -1753,45 +1441,7 @@ input[type="radio"]:checked ~ label {
   .grid-item {
     height: 192px;
   }
-  #about_image img {
-    padding-top: 5%;
-    margin-bottom: 0;
-    width: 65%;
-    height: 100%;
-  }
-  #blood img {
-    top: 54%;
-    left: 29%;
-    position: absolute;
-    /*			border: solid white 4px;
-*/
-    display: block;
-    bottom: 40%;
-    text-align: center;
-    width: 20%;
-    height: 100%;
-  }
-  #about_text {
-    letter-spacing: 0.9px;
-    line-height: 1.5em;
-    font-size: 1.3em;
-  }
-  #about_title {
-    font-size: 3.3em;
-  }
-  #first_par {
-    text-align: center;
-  }
-  /*#quote{
-			font-size: 2.8em;	
-		}*/
-  /*#right_skull {
-			margin-top:50%;
-		}
-		#left_skull {
-			margin-top: 50%;
-		}*/
-
+ 
   #video_title {
     font-size: 3.4em;
   }
@@ -1824,33 +1474,7 @@ input[type="radio"]:checked ~ label {
   #main_gallery img {
     height: 400px;
   }
-  #runner_container img {
-    height: 250px;
-  }
-  #demon_container img {
-    height: 250px;
-  }
-  ul li label {
-    left: 5%;
-  }
-  #sub_box label {
-    margin-right: 66%;
-  }
-  ul li .check {
-    top: 50%;
-    height: 30px;
-    width: 30px;
-  }
-  /*Dot in middle*/
-  ul li .check::before {
-    top: 15%;
-    left: 17%;
-    height: 14px;
-    width: 14px;
-  }
-  ul li label {
-    font-size: 2.2em;
-  }
+ 
   .shirt_title {
     font-size: 1.3em;
   }
@@ -1865,15 +1489,9 @@ input[type="radio"]:checked ~ label {
     font-size: 4vh;
     text-align: center;
   }
-  .hovereffect p {
-    font-size: 240%;
-  }
-  .hovereffect a {
-    font-size: 150%;
-  }
+ 
 }
 
-/*For blood and skull */
 @media (min-width: 841px) {
 
   .post {
@@ -1886,18 +1504,8 @@ input[type="radio"]:checked ~ label {
       width:50%;
     }
   }
-  /*#right_skull{
-		margin-top: 25%;
-	}
-	#left_skull{
-		margin-top: 25%;
-	}*/
-  /*	#quote{
-		font-size: 2.9em;
-	}*/
-  #blood {
-    top: 340px;
-  }
+ 
+ 
   .grid-item {
     height: 210.25px;
   }
@@ -1918,49 +1526,16 @@ input[type="radio"]:checked ~ label {
   #main_gallery img {
     height: 450px;
   }
-  ul li label {
-    margin-right: 500px;
-    bottom: 40%;
-  }
-  #sub_box label {
-    margin-right: 540px;
-  }
-  ul li .check {
-    top: 50%;
-    height: 30px;
-    width: 30px;
-  }
-  /*Dot in middle*/
-  ul li .check::before {
-    top: 15%;
-    left: 17%;
-    height: 14px;
-    width: 14px;
-  }
-  ul li label {
-    font-size: 2.2em;
-  }
+  
   .image_container img {
     width: 70%;
     height: 70%;
   }
-  .image_container {
-  }
+
 }
 @media (min-width: 944px) {
-  /*	#right_skull{
-		margin-top: 5%;
-	}
-	#left_skull{
-		margin-top: 5%;
-	}*/
-  /*	#quote{
-		font-size: 2.9em;
-	}*/
-  #blood {
-    top: 350px;
-    left: 43%;
-  }
+ 
+
   #carti_title {
     font-size: 12em;
   }
@@ -2019,18 +1594,12 @@ input[type="radio"]:checked ~ label {
   .grid-item-content .song_name {
     font-size: 1.5rem;
   }
-  #blood {
-    height: 40%;
-    top: 400px;
-    left: 42%;
-  }
+
   #left_skull {
     height: 220px;
     width: 200px;
   }
-  /*	#quote{	
-			font-size: 3.7em;	
-		}*/
+  
   #about_image {
     margin-left: 25%;
   }
@@ -2042,12 +1611,7 @@ input[type="radio"]:checked ~ label {
     margin-top: 57%;
     text-align: left;
   }
-  /*#right_skull{
-			margin-top: 40%;
-		}
-		#left_skull{
-			margin-top: 40%;
-		}*/
+
   .contents-video {
     height: 420px;
   }
@@ -2084,27 +1648,7 @@ input[type="radio"]:checked ~ label {
 */
     width: 100%;
   }
-  ul li label {
-    left: 3%;
-  }
-  #sub_box label {
-    margin-right: 75%;
-  }
-  ul li .check {
-    top: 50%;
-    height: 30px;
-    width: 30px;
-  }
-  /*Dot in middle*/
-  ul li .check::before {
-    top: 15%;
-    left: 17%;
-    height: 14px;
-    width: 14px;
-  }
-  ul li label {
-    font-size: 2.2em;
-  }
+ 
   .shirt_title {
     font-size: 1.7em;
   }
@@ -2154,23 +1698,7 @@ input[type="radio"]:checked ~ label {
     font-size: 2.3rem;
   }
 
-  /*	#quote{	
-			font-size: 4.9em;	
-		}*/
-  /*#blood{
-			top:550px;
-			margin-bottom: 0;
-		}
 
-		#right_skull{
-			width: 60%;
-			height: 60%;
-		}
-		#left_skull{
-			margin-left: 40%;
-			width: 60%;
-			height: 60%;
-		}*/
   #about_text {
     font-size: 1.7em;
     margin-top: 0;
@@ -2210,28 +1738,7 @@ input[type="radio"]:checked ~ label {
     height: 300px;
     width: 100%;
   }
-  ul li label {
-    margin-right: 75%;
-    bottom: 64%;
-  }
-  #sub_box label {
-    margin-right: 79%;
-  }
-  ul li .check {
-    top: 50%;
-    height: 30px;
-    width: 30px;
-  }
-  /*Dot in middle*/
-  ul li .check::before {
-    top: 15%;
-    left: 17%;
-    height: 14px;
-    width: 14px;
-  }
-  ul li label {
-    font-size: 2.2em;
-  }
+  
   .shirt_title {
     font-size: 2em;
   }
@@ -2258,7 +1765,6 @@ input[type="radio"]:checked ~ label {
 /* Desktops*/
 
 @media (min-width: 1280px) {
-  /* For height 1280/4*/
 
   .design_container .coming_soon {
     width: 30%;

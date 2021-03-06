@@ -121,6 +121,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let logoClass = $(".panel-title");
   logoClass.on("click", function () {
     var bunny = $(this).find("img");
+    console.log("CLICKED");
     removeAllVideos();
     addYoutubeVideo(this);
     removeAllSpin(bunny);

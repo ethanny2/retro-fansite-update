@@ -91,7 +91,7 @@ module.exports = merge(common, {
     //       // ]
     //     ]
     //   }
-    // })
+    // }),
     new OptimizeCSSAssetsPlugin({
       assetNameRegExp: /\.optimize\.css$/g,
       cssProcessor: require("cssnano"),
