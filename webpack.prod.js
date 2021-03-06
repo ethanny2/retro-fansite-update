@@ -28,7 +28,7 @@ module.exports = merge(common, {
   module: {
     rules: [
       {
-        test: /\.(jpg|JPG|jpeg|png|gif|mp4|svg|ttf|webp|woff2|woff|eot)$/i,
+        test: /\.(jpg|JPG|jpeg|png|gif|mp4|svg|ttf|webp|woff2|woff|eot|webmanifest)$/i,
         type: "asset/resource"
       },
       // Loads all font files
