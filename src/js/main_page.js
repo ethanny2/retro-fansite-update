@@ -5,10 +5,17 @@ let curPage = 0;
   dependency graph so I just include them here to make sure they are in the final build
 */
 
-import image1 from "../static/images/posts/post1-wlr.webp";
-import image2 from "../static/images/posts/post2-interview.jpg";
-import image3 from "../static/images/posts/post3-metamor.png";
-import image4 from "../static/images/posts/post4-merch.png";
+import post1 from "../static/images/posts/post1-wlr.jpg";
+import post1Webp from "../static/images/posts/post1-wlr.webp";
+
+import post2 from "../static/images/posts/post2-interview.jpg";
+import post2Webp from "../static/images/posts/post2-interview.webp";
+
+import post3 from "../static/images/posts/post3-metamor.png";
+import post3Webp from "../static/images/posts/post3-metamor.webp";
+
+import post4 from "../static/images/posts/post4-merch.png";
+import post4Webp from "../static/images/posts/post4-merch.webp";
 
 let posts = [
   `<div class="row post-row">
@@ -26,10 +33,11 @@ let posts = [
     </p>
     <figure class="right">
       <a rel="noopener" href="https://www.interviewmagazine.com/music/playboi-carti-takes-kid-cudi-behind-the-method-to-his-madness">
-        <img
-        src="${image2}"
-        alt="Playboi Carti Interview photo shoot"
-      />
+      <picture>
+      <source srcset="${post2Webp}" type="image/webp" />
+      <source srcset="${post2}" type="image/jpg" />
+      <img src="${post2}"  alt="Playboi Carti Interview photo shoot" />
+    </picture>
       </a>
       <figcaption></figcaption>
         Interview magazine's photoshoot
@@ -77,10 +85,11 @@ let posts = [
     </p>
     <figure class="middle" >
       <a rel="noopener" href="https://shop.playboicarti.com/?utm_campaign=nav&utm_medium=referral&utm_source=playboicarti.com">
-        <img
-        src="${image4}"
-        alt="Sample merch of sweaters and shirts"
-      />
+      <picture>
+      <source srcset="${post4Webp}" type="image/webp" />
+      <source srcset="${post4}" type="image/png" />
+      <img src="${post4}"    alt="Sample merch of sweaters and shirts" />
+    </picture>
       </a>
       <figcaption>
         Sample sweaters and shirts
@@ -117,10 +126,11 @@ let posts = [
   </p>
   <figure class="middle" >
     <a rel="noopener" href="https://www.youtube.com/watch?v=wGBsIelFe-E">
-      <img
-      src="${image3}"
-      alt="Scene from music video with Playboi Carti and Kid Cudi riding a tracktor"
-    />
+    <picture>
+    <source srcset="${post3Webp}" type="image/webp" />
+    <source srcset="${post3}" type="image/png" />
+    <img src="${post3}"    alt="Scene from music video with Playboi Carti and Kid Cudi riding a tracktor" />
+  </picture>
     </a>
     <figcaption>
       Kid Cudi and Playboi Carti in the M3tamorphosis video
@@ -155,10 +165,11 @@ let posts = [
   </p>
   <figure class="left">
     <a href="https://smarturl.it/WLRcarti" rel="noopener">
-      <img
-        src="${image1}"
-        alt="Whole lotta' red album cover art"
-      />
+    <picture>
+    <source srcset="${post1Webp}" type="image/webp" />
+    <source srcset="${post1}" type="image/jpg" />
+    <img src="${post1}"    alt="Scene from music video with Playboi Carti and Kid Cudi riding a tracktor" />
+  </picture>
     </a>
     <figcaption>
       WLR Cover art
@@ -169,8 +180,7 @@ let posts = [
     the artist his first spot in the billboard top 100.
   </p>
   <blockquote class="quote-right">
-    " Immediately after its release, the first-week sales projections
-    emerged and they were pretty high. Industry forecasters predicted
+    "...Industry forecasters predicted
     that he would be pushing somewhere between 125,000-135,000 in its
     first week" - hotnewhiphop.com
   </blockquote>
@@ -205,7 +215,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (rightArrow.classList.contains("disable")) return;
     paginate(leftArrow, rightArrow, true);
   });
-  ajaxScrape();
+  // ajaxScrape();
 });
 
 function ajaxScrape() {

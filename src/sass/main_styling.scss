@@ -84,7 +84,7 @@ a:hover {
 .pagination-middle {
   text-align: center;
   img {
-    width: 25%;
+    width: 60%;
   }
 }
 
@@ -1327,9 +1327,6 @@ input[type="radio"]:checked ~ label {
   .grid-item {
     height: 120px;
   }
-  #blood {
-    top: 350px;
-  }
   .grid-item-content span {
     font-size: 2rem;
   }
@@ -1543,8 +1540,14 @@ input[type="radio"]:checked ~ label {
 
 /*Change if viewport is 576px or wider */
 @media (min-width: 576px) {
+  .pagination-middle {
+    text-align: center;
+    img {
+      width: 25%;
+    }
+  }
   .design_container img {
-    width: 60%;
+    width: 90%;
   }
   .design_container .coming_soon {
     height: 100%;
@@ -1665,7 +1668,7 @@ input[type="radio"]:checked ~ label {
 @media (min-width: 689px) {
   .design_container .coming_soon {
     height: 100%;
-    width: 60%;
+    width: 25%;
   }
   .title {
     font-size: 4rem;
@@ -1726,6 +1729,11 @@ input[type="radio"]:checked ~ label {
   .design_container img {
     height: 100%;
     width: 100%;
+  }
+
+  .design_container .coming_soon {
+    height: 100%;
+    width: 55%;
   }
 
   #brand_img {
@@ -1879,6 +1887,7 @@ input[type="radio"]:checked ~ label {
 
 /*For blood and skull */
 @media (min-width: 841px) {
+
   .post {
     font-size: 2.5rem;
     text-align: center;
@@ -2262,8 +2271,9 @@ input[type="radio"]:checked ~ label {
 
 @media (min-width: 1280px) {
   /* For height 1280/4*/
+
   .design_container .coming_soon {
-    width: 40%;
+    width: 30%;
   }
   .grid-item {
     height: 320px;
@@ -2307,6 +2317,9 @@ input[type="radio"]:checked ~ label {
   }
 }
 @media (min-width: 1600px) {
+  .front,.back{
+    width:60%;
+  }
   .grid-item {
     height: 400px;
   }

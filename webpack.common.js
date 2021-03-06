@@ -93,7 +93,7 @@ module.exports = {
             loader: MiniCssExtractPlugin.loader,
             options: {
               // Path all assets AFTER build process
-              publicPath: "../"
+              // publicPath: ""
               // hmr: true
             }
           },
@@ -101,7 +101,8 @@ module.exports = {
           {
             loader: "css-loader",
             options: {
-              sourceMap: true
+              sourceMap: true,
+              url: true
             }
           },
           // Adds vendor prefixes with Autoprefixer
@@ -149,7 +150,7 @@ module.exports = {
       favicon: "./src/static/images/favicons/favicon.ico",
       inject: "head",
       chunks: ["main", "music"],
-      minify: true
+      minify: false
     }),
     new HtmlWebpackPlugin({
       title: "Unofficial Playboi Carti",
@@ -184,14 +185,14 @@ module.exports = {
       defaultAttribute: "defer"
     }),
     //Copy the entire directory of netlify functions to build folder
-    new CopyPlugin({
-      patterns: [
-        {
-          from: path.resolve(__dirname, "./functions"),
-          to: "./functions/"
-        }
-      ]
-    }),
+    // new CopyPlugin({
+    //   patterns: [
+    //     {
+    //       from: path.resolve(__dirname, "./functions"),
+    //       to: "./functions/"
+    //     }
+    //   ]
+    // }),
     new MiniCssExtractPlugin({
       filename: "[name].css",
       chunkFilename: "[id].css"
