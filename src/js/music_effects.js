@@ -5,7 +5,6 @@
 // let masonry = require("masonry-layout");
 var Masonry = require("masonry-layout");
 let getSize = require("get-size");
-var imagesLoaded = require("imagesloaded");
 
 var soundCloudLinks = {
   talk_og:
@@ -327,13 +326,3 @@ function removeAllActive() {
     $(this).removeClass("expand");
   });
 }
-/* Images loaded not in masonry, but needed*/
-
-imagesLoaded("#grid", function () {
-  // images have loaded
-  new Masonry("#grid", {
-    columnWidth: ".grid-sizer",
-    itemSelector: ".grid-item",
-    percentPosition: true
-  });
-});
