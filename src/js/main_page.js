@@ -75,13 +75,13 @@ let posts = [
   <article class="post cf">
     <header>
       <h2>
-        M3tamorphosis Video
+     New Merchandise
       </h2>
     </header>
     <p>
-     Days off the release of his #1 billboard top 100 spot album, Playboi
-     Carti just dropped a new music video for M3tamorphosis; one of the
-     few songs on the album to have a feature.
+    New offical Playboi Carti merchandise was stealth dropped after 3 years of no new
+    merchandise. The last time offical clothing dropped was when Carti's first
+    self-title mixtape came out way back in 2017.
     </p>
     <figure class="middle" >
       <a rel="noopener" href="https://shop.playboicarti.com/?utm_campaign=nav&utm_medium=referral&utm_source=playboicarti.com">
