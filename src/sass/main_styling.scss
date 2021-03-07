@@ -192,7 +192,8 @@ body {
 
 html {
   width: 100%;
-  height: 100%;
+  height: auto;
+  overflow-x: hidden;
 }
 
 * {
@@ -267,23 +268,19 @@ html {
 .grid-sizer,
 .grid-item {
   width: 33.3%;
+  transition: opacity 0.6s;
 }
 
 .grid-item {
   float: left;
   height: 107px;
-  transition: transform 0.3s ease-in-out;
-  -webkit-transition: transform 0.3s ease-in-out;
-  -moz-transition: transform 0.3s ease-in-out;
-  -o-transition: transform 0.3s ease-in-out;
-  -ms-transition: transform 0.3s ease-in-out;
+ 
 }
 
 .grid-item-content {
   width: 100%;
   height: 100%;
-  -webkit-transition: width 0.4s, height 0.4s;
-  transition: width 0.4s, height 0.4s;
+
 }
 
 /* Song name*/
@@ -309,12 +306,7 @@ html {
   overflow: hidden;
 }
 
-.grid-item-content .close-button {
-  color: red;
-  font-size: 3em;
-  background-color: transparent;
-  display: none;
-}
+
 
 .grid-item-content img {
   width: 100%;
@@ -324,12 +316,11 @@ html {
 .grid-item:hover .grid-item-content {
   cursor: pointer;
   border-color: white;
-  /*	background:white;
-*/
   border: 2px solid #333;
   border-color: hsla(0, 0%, 0%, 0.5);
   border-radius: 5px;
 }
+
 
 .grid-item.expand {
   width: 100%;
@@ -353,15 +344,7 @@ html {
   display: none;
 }
 
-.grid-item.expand .grid-item-content .close-button {
-  left: 94%;
-  display: none;
 
-  font-size: 1.4em;
-  text-decoration: underline;
-  margin-bottom: 2%;
-  cursor: pointer;
-}
 
 /* Experimental*/
 iframe {
@@ -1097,8 +1080,14 @@ label {
 /****/
 
 /* All queries to resize to different devices */
+.grid-item, .grid-sizer{
+  width: 33.33%;
+}
 
 @media (min-width: 400px) {
+  #top_nav {
+    max-width:none;
+  }
   #home {
     display: inherit;
   }
@@ -1201,7 +1190,8 @@ label {
   /*If width needs to be changed */
   .grid-sizer,
   .grid-item {
-    width: 33.3333333333%;
+    // Was 33.33 
+    width: 33.33%;
   }
   .grid-item-content span {
     font-size: 2rem;

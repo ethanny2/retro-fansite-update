@@ -251,7 +251,7 @@ function toggleSoundCloudPlayer(currentItem, currentItemContent) {
   }
 }
 
-document.addEventListener("DOMContentLoaded", function () {
+$(window).on("load", function () {
   $(".grid-item").hover(
     function () {
       if (!$(this).hasClass("expand")) {
@@ -265,58 +265,20 @@ document.addEventListener("DOMContentLoaded", function () {
   grid = new Masonry("#grid", {
     columnWidth: ".grid-sizer",
     itemSelector: ".grid-item",
-    percentPosition: true
+    percentPosition: true,
+    resize: true,
+    transitionDuration: "0.5s"
   });
-  //adjustCoverHeight();
   $("#grid").on("click", ".grid-item-content", function () {
     var itemContent = this;
     var itemElem = itemContent.parentNode;
     $(itemElem).removeClass("grow");
     removeAllActive();
     toggleSoundCloudPlayer(itemElem, itemContent);
-    setItemContentPixelSize(itemContent);
     $(itemElem).toggleClass("expand");
-    // force redraw
-    // renable default transition
-    itemContent.style[transitionProp] = "";
-    addTransitionListener(itemContent);
-    setItemContentTransitionSize(itemContent, itemElem);
     grid.layout();
   });
 });
-
-var docElem = document.documentElement;
-var transitionProp = typeof docElem.style.transition == "string" ? "transition" : "WebkitTransition";
-var transitionEndEvent = {
-  WebkitTransition: "webkitTransitionEnd",
-  transition: "transitionend"
-}[transitionProp];
-
-function setItemContentPixelSize(itemContent) {
-  var previousContentSize = getSize(itemContent);
-  // disable transition
-  itemContent.style[transitionProp] = "none";
-  // set current size in pixels
-  itemContent.style.width = previousContentSize.width + "px";
-  itemContent.style.height = previousContentSize.height + "px";
-}
-
-function addTransitionListener(itemContent) {
-  // reset 100%/100% sizing after transition end
-  var onTransitionEnd = function () {
-    itemContent.style.width = "";
-    itemContent.style.height = "";
-    itemContent.removeEventListener(transitionEndEvent, onTransitionEnd);
-  };
-  itemContent.addEventListener(transitionEndEvent, onTransitionEnd);
-}
-
-function setItemContentTransitionSize(itemContent, itemElem) {
-  // set new size
-  var size = getSize(itemElem);
-  itemContent.style.width = size.width + "px";
-  itemContent.style.height = size.height + "px";
-}
 
 /*If class is already active do not remove the active because the toggleClass will already do that	 */
 /* Also remove the soundCloud player and make the image and span display visible*/
