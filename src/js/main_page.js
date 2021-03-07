@@ -215,14 +215,14 @@ document.addEventListener("DOMContentLoaded", function () {
     if (rightArrow.classList.contains("disable")) return;
     paginate(leftArrow, rightArrow, true);
   });
-  // ajaxScrape();
+  ajaxScrape();
 });
 
 function ajaxScrape() {
   console.log("Calling scrape");
   $.ajax({
     //Need to change when in prod
-    url: "../../php/scrape.php",
+    url: "https://young-sierra-54781.herokuapp.com/",
     dataType: "json",
     type: "POST",
     success: function (response) {
