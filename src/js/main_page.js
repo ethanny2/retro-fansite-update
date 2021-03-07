@@ -219,7 +219,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function ajaxScrape() {
-  console.log("Calling scrape");
   $.ajax({
     //Need to change when in prod
     url: "https://young-sierra-54781.herokuapp.com/",
@@ -227,14 +226,11 @@ function ajaxScrape() {
     type: "POST",
     success: function (response) {
       if (response.error) {
-        console.log("Invalid URL");
+        return;
       } else {
-        console.log(response);
         if (response.pic) {
-          console.log("returned image");
           instertPhoto(response);
         } else {
-          console.log("returned video");
           insertVideo(response);
         }
       }
@@ -250,10 +246,12 @@ function ajaxScrape() {
 }
 
 function instertPhoto(responseObject) {
+  $(".loading").remove();
   $("#main_gallery").append(responseObject["pic"]);
 }
 
 function insertVideo(responseObject) {
+  $(".loading").remove();
   $("#main_gallery").append(responseObject["vid"]);
 }
 

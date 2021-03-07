@@ -4,7 +4,6 @@
 
 // let masonry = require("masonry-layout");
 var Masonry = require("masonry-layout");
-let getSize = require("get-size");
 
 var soundCloudLinks = {
   talk:

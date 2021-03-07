@@ -61,15 +61,13 @@
       <div class="row gallery_parent center-col">
         <div class="col-xs-12 col-sm-3 no-pad">
           <div id="decoration_left">
-            <picture>
-              <source srcset="../images/optimal-flame-skull.webp" type="image/webp" />
-              <source srcset="../images/optimal-flame-skull.gif" type="image/gif" />
-              <img src="../images/optimal-flame-skull.gif" alt="Blue flaming skull animated" />
-            </picture>
+            <img src="../images/optimal-flame-skull.gif" alt="Blue flaming skull animated" />
           </div>
         </div>
         <div class="col-xs-12 col-sm-8 gallery_back">
-          <div id="main_gallery"></div>
+          <div id="main_gallery">
+            <div class="loading"></div>
+          </div>
           <div id="note">
             <p>
               Media from
@@ -79,11 +77,9 @@
         </div>
         <div class="col-xs-12 col-sm-3 no-pad">
           <div id="decoration_left">
-            <picture>
-              <source srcset="../images/optimal-flame-skull.webp" type="image/webp" />
-              <source srcset="../images/optimal-flame-skull.gif" type="image/gif" />
-              <img src="../images/optimal-flame-skull.gif" alt="Blue flaming skull animated" />
-            </picture>
+            <!-- Safari has trouble serving this webp because of transparency issues;
+            just using gif for the skulls -->
+            <img src="../images/optimal-flame-skull.gif" alt="Blue flaming skull animated" />
           </div>
         </div>
       </div>

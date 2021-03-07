@@ -1,4 +1,3 @@
-
 #main_game {
   margin-top: 5rem;
 }
@@ -10,8 +9,7 @@ head {
   padding: 0;
 }
 body {
-  background: url("../static/images/electric_background.png") no-repeat center
-    center fixed;
+  background: url("../static/images/electric_background.png") no-repeat center center fixed;
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -33,7 +31,6 @@ body {
 .cf {
   *zoom: 1;
 }
-
 
 a {
   color: #9d9d9d;
@@ -124,18 +121,18 @@ a:hover {
     width: 100%;
   }
   img {
-    width:100%;
+    width: 100%;
   }
   figure {
     // border: 1px solid rgba(128, 128, 128, 0.623);
-    width:100%;
+    width: 100%;
   }
   footer {
     margin-top: 5rem;
     font-size: 2.3rem;
   }
-  header{
-    text-align:center;
+  header {
+    text-align: center;
   }
 }
 
@@ -200,8 +197,6 @@ html {
 * {
   box-sizing: border-box;
 }
-
-
 
 .navbar-nav {
   font-size: 1.5em;
@@ -275,13 +270,11 @@ html {
 .grid-item {
   float: left;
   height: 107px;
- 
 }
 
 .grid-item-content {
   width: 100%;
   height: 100%;
-
 }
 
 /* Song name*/
@@ -307,8 +300,6 @@ html {
   overflow: hidden;
 }
 
-
-
 .grid-item-content img {
   width: 100%;
   height: 100%;
@@ -321,7 +312,6 @@ html {
   border-color: hsla(0, 0%, 0%, 0.5);
   border-radius: 5px;
 }
-
 
 .grid-item.expand {
   width: 100%;
@@ -345,8 +335,6 @@ html {
   display: none;
 }
 
-
-
 /* Experimental*/
 iframe {
   width: 100%;
@@ -354,7 +342,7 @@ iframe {
 }
 
 .grow {
-   transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
   -webkit-transition: transform 0.3s ease-in-out;
   -moz-transition: transform 0.3s ease-in-out;
   -o-transition: transform 0.3s ease-in-out;
@@ -399,8 +387,8 @@ iframe {
 }
 
 .wrap {
-  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.14),
-    0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
+    0px 1px 5px 0px rgba(0, 0, 0, 0.12);
   border-radius: 4px;
 }
 .panel-title a:focus,
@@ -477,18 +465,15 @@ iframe {
   height: 0;
   overflow: hidden;
   -webkit-transition-timing-function: ease;
-       -o-transition-timing-function: ease;
-          transition-timing-function: ease;
-  -webkit-transition-duration: .35s;
-       -o-transition-duration: .35s;
-          transition-duration: .35s;
+  -o-transition-timing-function: ease;
+  transition-timing-function: ease;
+  -webkit-transition-duration: 0.35s;
+  -o-transition-duration: 0.35s;
+  transition-duration: 0.35s;
   -webkit-transition-property: height, visibility;
-       -o-transition-property: height, visibility;
-          transition-property: height, visibility;
+  -o-transition-property: height, visibility;
+  transition-property: height, visibility;
 }
-
-
-
 
 .contents-title {
   text-align: center;
@@ -578,11 +563,43 @@ iframe {
   width: 100%;
   height: 125px;
 }
-#main_gallery img {
+#main_gallery img, #main_gallery video {
   height: 300px;
-  width:75%;
+  width: 75%;
 }
-.gallery_back{
+
+  .loading {
+    height: 300px;
+    width: 100%;
+    position: relative; 
+    overflow:hidden;
+  }
+
+.loading::after {
+  display: block; 
+  content: ""; 
+  position: absolute; 
+  width: 100%; 
+  height: 100%; 
+  transform: translateX(-100%); 
+  background: -webkit-gradient(linear, left top, 
+              right top, from(transparent),  
+              color-stop(rgba(255, 255, 255, 0.2)), 
+              to(transparent)); 
+                
+  background: linear-gradient(90deg, transparent, 
+          rgba(255, 255, 255, 0.2), transparent); 
+  /* Adding animation */ 
+  animation: loading 0.8s infinite;   
+}
+/* Loading Animation */
+@keyframes loading {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.gallery_back {
   margin-top: 5%;
   max-width: 300px;
   margin-bottom: 5%;
@@ -590,8 +607,9 @@ iframe {
 #main_gallery {
   padding: 1rem;
   margin: 0;
-  width: 100%;
+  width: auto;
   text-align: center;
+  overflow: hidden;
 }
 #main_gallery video {
   width: 100%;
@@ -602,8 +620,6 @@ iframe {
   z-index: 1000;
   width: 90%;
   height: 100%;
-  /*	border:solid black 2px;
-*/
   border-radius: 5px;
 }
 
@@ -612,16 +628,15 @@ iframe {
   z-index: 1000;
   width: 90%;
   height: 100%;
-  /*	border:solid black 2px;
-*/
   border-radius: 5px;
 }
 .gallery_back {
   padding: 0;
   margin: 0;
-  background-color: rgba(255, 255, 255, 1);
+  background: #271f1f;
+  color: #e7e6e6;
   text-align: center;
-  border: solid black 2px;
+  // border: solid black 2px;
 }
 .gallery_parent {
   width: 100%;
@@ -632,8 +647,8 @@ iframe {
 
 #note {
   text-align: center;
-  color: black;
-  font-size: 1.8em;
+  color: #e7e6e6;
+  font-size: 1.5rem;
   margin-top: 5%;
   width: 100%;
 }
@@ -928,7 +943,6 @@ label {
 }
 .pagination-left,
 .pagination-right {
-
   svg {
     width: 3rem;
   }
@@ -939,13 +953,14 @@ label {
 /****/
 
 /* All queries to resize to different devices */
-.grid-item, .grid-sizer{
+.grid-item,
+.grid-sizer {
   width: 33.33%;
 }
 
 @media (min-width: 400px) {
   #top_nav {
-    max-width:none;
+    max-width: none;
   }
   #home {
     display: inherit;
@@ -953,7 +968,6 @@ label {
 }
 
 @media (min-width: 320px) {
- 
   .navbar-brand p {
     font-size: 1em;
   }
@@ -1049,7 +1063,7 @@ label {
   /*If width needs to be changed */
   .grid-sizer,
   .grid-item {
-    // Was 33.33 
+    // Was 33.33
     width: 33.33%;
   }
   .grid-item-content span {
@@ -1077,7 +1091,6 @@ label {
   #carti_title {
     font-size: 4.6em;
   }
-
 }
 @media (min-width: 450px) {
   .navbar-brand p {
@@ -1115,7 +1128,7 @@ label {
     font-size: 6em;
   }
   #note {
-    font-size: 3em;
+    font-size: 2rem;
   }
   #decoration_right img {
     height: 175px;
@@ -1123,7 +1136,6 @@ label {
   #decoration_left img {
     height: 175px;
   }
-
 }
 
 /*Change if viewport is 576px or wider */
@@ -1174,7 +1186,7 @@ label {
     font-size: 6.2em;
   }
   #note {
-    font-size: 3em;
+    font-size: 2.3em;
   }
   #decoration_right img {
     height: 200px;
@@ -1192,7 +1204,7 @@ label {
     height: auto;
     text-align: center;
   }
-  
+
   .design_container {
     width: 100%;
     height: 100%;
@@ -1212,8 +1224,6 @@ label {
   .carti_img {
     width: 90%;
   }
-  
-
 }
 
 @media (min-width: 689px) {
@@ -1235,7 +1245,7 @@ label {
     font-size: 8em;
   }
   #note {
-    font-size: 3.5em;
+    font-size: 2rem;
   }
   #decoration_right img {
     width: 20%;
@@ -1243,7 +1253,6 @@ label {
   #decoration_left img {
     width: 20%;
   }
- 
 }
 
 /* THIS IS AN IPAD; also boostrap sm size*/
@@ -1252,7 +1261,7 @@ label {
     height: 100%;
     width: 100%;
   }
-  .center-col{
+  .center-col {
     flex-direction: row;
   }
 
@@ -1290,7 +1299,7 @@ label {
   .grid-item {
     height: 192px;
   }
- 
+
   #video_title {
     font-size: 3.4em;
   }
@@ -1309,16 +1318,15 @@ label {
     font-size: 9.2em;
   }
   #note {
-    font-size: 3.2em;
+    font-size: 2.2em;
   }
   #decoration_right img {
     height: 250px;
-    width:75%;
+    width: 75%;
   }
   #decoration_left img {
     height: 250px;
-    width:75%;
-
+    width: 75%;
   }
   #main_gallery video {
     height: 400px;
@@ -1326,7 +1334,7 @@ label {
   #main_gallery img {
     height: 400px;
   }
- 
+
   .shirt_title {
     font-size: 1.3em;
   }
@@ -1341,46 +1349,40 @@ label {
     font-size: 4vh;
     text-align: center;
   }
- 
 }
 
 @media (min-width: 841px) {
-
   .post {
     font-size: 2.5rem;
     text-align: center;
     .img {
-      width:75%;
+      width: 75%;
     }
-    figure{
-      width:50%;
+    figure {
+      width: 50%;
     }
   }
- 
- 
+
   .grid-item {
     height: 210.25px;
   }
   #carti_title {
     font-size: 10em;
   }
-  
+
   #main_gallery video {
     height: 450px;
   }
   #main_gallery img {
     height: 450px;
   }
-  
+
   .image_container img {
     width: 70%;
     height: 70%;
   }
-
 }
 @media (min-width: 944px) {
- 
-
   #carti_title {
     font-size: 12em;
   }
@@ -1390,23 +1392,22 @@ label {
   #main_gallery img {
     height: 500px;
   }
-
 }
 
 @media (min-width: 992px) {
-  .post{
+  .post {
     width: 50vw;
     min-width: 50vw;
   }
-  
-.pagination-left,
-.pagination-right {
-  width:5rem;
-  min-width: 5rem;
-  svg {
+
+  .pagination-left,
+  .pagination-right {
     width: 5rem;
+    min-width: 5rem;
+    svg {
+      width: 5rem;
+    }
   }
-}
   .navbar-brand p {
     font-size: 1.5em;
     margin-top: 5%;
@@ -1437,7 +1438,7 @@ label {
     height: 220px;
     width: 200px;
   }
-  
+
   #about_image {
     margin-left: 25%;
   }
@@ -1477,16 +1478,11 @@ label {
   #main_gallery img {
     width: 90%;
   }
-  .gallery_back {
-    /*			width: 400px;
-*/
-  }
+
   .gallery_parent {
-    /*			margin-left:15%;
-*/
     width: 100%;
   }
- 
+
   .shirt_title {
     font-size: 1.7em;
   }
@@ -1502,8 +1498,8 @@ label {
     width: 50%;
     height: 500px;
   }
-  .gallery_back{
-    max-width:700px;
+  .gallery_back {
+    max-width: 700px;
   }
 }
 
@@ -1539,7 +1535,6 @@ label {
     font-size: 2.3rem;
   }
 
-
   #about_text {
     font-size: 1.7em;
     margin-top: 0;
@@ -1571,8 +1566,7 @@ label {
     left: 96%;
     top: 5%;
   }
- 
-  
+
   .shirt_title {
     font-size: 2em;
   }
@@ -1599,7 +1593,6 @@ label {
 /* Desktops*/
 
 @media (min-width: 1280px) {
-
   .design_container .coming_soon {
     width: 30%;
   }
@@ -1645,8 +1638,9 @@ label {
   }
 }
 @media (min-width: 1600px) {
-  .front,.back{
-    width:60%;
+  .front,
+  .back {
+    width: 60%;
   }
   .grid-item {
     height: 400px;
