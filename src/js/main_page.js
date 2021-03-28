@@ -237,10 +237,6 @@ function ajaxScrape() {
     },
     error: function () {
       $(".rank").html("Invalid URL or Some Error occured!");
-      console.log("Scrape function failed");
-    },
-    complete: function () {
-      console.log("Done with AJAX function");
     }
   });
 }
@@ -266,13 +262,11 @@ function paginate(left, right, isForward) {
     right.classList.remove("disable");
   }
   const indexes = [curPage * 2, curPage * 2 + 1];
-  console.log({ indexes });
   let currentPosts = document.querySelectorAll(".post-row");
   currentPosts.forEach(function (post) {
     post.remove();
   });
   const container = document.getElementById("post-section");
-  console.log({ container });
   container.innerHTML += posts[indexes[0]];
   container.innerHTML += posts[indexes[1]];
   currentPosts = document.querySelectorAll(".post-row");

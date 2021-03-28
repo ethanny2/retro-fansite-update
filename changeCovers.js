@@ -890,11 +890,9 @@ while (position <= dataStr.length) {
   console.log(img);
   const sourceStart = img.indexOf('src="') + 5;
   const sourceEnd = img.indexOf('"', sourceStart);
-  // console.log(sourceStart, sourceEnd);
   const source = img.substring(sourceStart, sourceEnd);
   console.log(source);
   const name = source.substring(source.lastIndexOf("/") + 1, source.lastIndexOf("g") - 3);
-  // console.log(name);
 
   const newItem = `
    <div class="grid-item" id="${name}">
@@ -909,7 +907,6 @@ while (position <= dataStr.length) {
         </div>
       </div>
 `;
-  // console.log({newItem});
   output.push(newItem);
   console.log({ imgEnd });
   position = imgEnd;
@@ -922,7 +919,3 @@ console.log(
   output.join(`
 `)
 );
-
-// while(counter < 5){
-// counter++;
-// }
