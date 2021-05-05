@@ -243,7 +243,9 @@ function ajaxScrape() {
 
 function instertPhoto(responseObject) {
   $(".loading").remove();
-  $("#main_gallery").append(responseObject["pic"]);
+  const correctedTag = responseObject.pic.replace('="/', '="https://gramho.com//');
+  // Replace imaage SRC front with "https://gramho.com/"
+  $("#main_gallery").append(correctedTag);
 }
 
 function insertVideo(responseObject) {
